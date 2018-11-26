@@ -13,6 +13,7 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
+
         player: {
             default: null,
             type: Player
@@ -27,11 +28,6 @@ cc.Class({
             default: null,
             type: cc.Node
         },
-        // 子弹资源
-        missilePrefab: {
-            default: null,
-            type: cc.Prefab
-        }
         // foo: {
         //     // ATTRIBUTES:
         //     default: null,        // The default value will be used only when the component attaching

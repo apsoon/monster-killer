@@ -16,6 +16,11 @@ cc.Class({
         health: 0,
         // 速度
         speed: 0,
+        // 子弹资源
+        missilePrefab: {
+            default: null,
+            type: cc.Prefab
+        }
         // foo: {
         //     // ATTRIBUTES:
         //     default: null,        // The default value will be used only when the component attaching
