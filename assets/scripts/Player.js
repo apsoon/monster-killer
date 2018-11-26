@@ -37,6 +37,16 @@ cc.Class({
 
     // onLoad () {},
 
+    // 射击动作
+    shotAction: function () {
+        console.info(" palyer.shot ");
+    },
+
+    // 技能动作
+    exAction: function () {
+        console.info(" player.ex ");
+    },
+
     start() {
 
     },

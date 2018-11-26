@@ -239,13 +239,13 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5118739052033361,
-      "y": 0.48130499329758525
+      "x": 0.6169525850786305,
+      "y": 0.49015993823089643
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 12,
-      "y": -12,
+      "x": 113,
+      "y": -6,
       "z": 0
     },
     "_scale": {
@@ -477,7 +477,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "ribaiasu_01",
+    "_name": "Player",
     "_objFlags": 0,
     "_parent": {
       "__id__": 3
@@ -1032,11 +1032,17 @@
       "__id__": 2
     },
     "_enabled": true,
+    "player": {
+      "__id__": 12
+    },
     "buttonA": {
       "__id__": 15
     },
     "buttonB": {
       "__id__": 19
+    },
+    "missilePrefab": {
+      "__uuid__": "b51eae9b-727e-4595-8304-d10daf9fa3a9"
     },
     "_id": "1dRtFiy+RNrJgSJqspznNo"
   }

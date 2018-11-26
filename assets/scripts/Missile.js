@@ -7,31 +7,11 @@
 // Learn life-cycle callbacks:
 //  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
-const Player = require('Player');
 
 cc.Class({
     extends: cc.Component,
 
     properties: {
-        player: {
-            default: null,
-            type: Player
-        },
-        // 按钮A
-        buttonA: {
-            default: null,
-            type: cc.Node
-        },
-        // 按钮B
-        buttonB: {
-            default: null,
-            type: cc.Node
-        },
-        // 子弹资源
-        missilePrefab: {
-            default: null,
-            type: cc.Prefab
-        }
         // foo: {
         //     // ATTRIBUTES:
         //     default: null,        // The default value will be used only when the component attaching
@@ -53,19 +33,7 @@ cc.Class({
 
     // onLoad () {},
 
-    // 按钮A事件
-    onButtonAClicked: function () {
-        console.info(" button A ");
-        this.player.shotAction();
-    },
-
-    // 按钮B事件
-    onButtonBClicked: function () {
-        console.info(" button B ");
-        this.player.exAction();
-    },
-
-    start() {
+    start () {
 
     },
 
