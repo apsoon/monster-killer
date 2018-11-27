@@ -8,10 +8,15 @@
 //  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
 
-cc.Class({
+var DataBus = cc.Class({
     extends: cc.Component,
 
+    statics: {
+
+    },
+
     properties: {
+
         // foo: {
         //     // ATTRIBUTES:
         //     default: null,        // The default value will be used only when the component attaching
@@ -29,11 +34,25 @@ cc.Class({
         // },
     },
 
+    removeEnemey: function () {
+
+    },
+
+    /**
+     * 删除子弹
+     */
+    removeMissile: function (missile) {
+        let that = this;
+        let temp = that.missiles.shift();
+        temp.visible = false;
+        that.pool.recover('missile', missile);
+    },
+
     // LIFE-CYCLE CALLBACKS:
 
     // onLoad () {},
 
-    start () {
+    start() {
 
     },
 

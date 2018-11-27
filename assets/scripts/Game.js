@@ -8,6 +8,7 @@
 //  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
 const Player = require('Player');
+const Common = require('Common');
 
 cc.Class({
     extends: cc.Component,
@@ -50,15 +51,14 @@ cc.Class({
     // onLoad () {},
 
     // 按钮A事件
-    onButtonAClicked: function () {
+    onArrowClicked: function (event, data) {
         console.info(" button A ");
-        this.player.shotAction();
+        this.player.moveAction(data);
     },
 
-    // 按钮B事件
-    onButtonBClicked: function () {
-        console.info(" button B ");
-        this.player.exAction();
+    onOptionClicked: function (event, data) {
+        console.info(" option button clicked Oritation is ", event, data);
+        this.player.shotAction(data);
     },
 
     start() {

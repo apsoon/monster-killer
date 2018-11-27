@@ -8,6 +8,8 @@
 //  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
 
+const DataBus = require("DataBus");
+
 cc.Class({
     extends: cc.Component,
 
@@ -16,6 +18,8 @@ cc.Class({
         health: 0,
         // 速度
         speed: 0,
+        // 朝向
+        face: 0,
         // 子弹资源
         missilePrefab: {
             default: null,
@@ -43,13 +47,20 @@ cc.Class({
     // onLoad () {},
 
     // 射击动作
-    shotAction: function () {
+    shotAction: function (oritation) {
+        let that = this;
         console.info(" palyer.shot ");
+        let x = this.node.x,
+            y = this.y,
+            missle = cc.instantiate(this.missilePrefab);
+
+        console.info(this.node.x);
     },
 
     // 技能动作
-    exAction: function () {
+    moveAction: function (oritation) {
         console.info(" player.ex ");
+
     },
 
     start() {
