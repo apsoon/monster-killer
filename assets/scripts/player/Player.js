@@ -8,7 +8,9 @@
 //  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
 
-const DataBus = require("DataBus");
+// const DataBus = require("DataBus");
+import DataBus from "../DataBus.js";
+let dataBus = new DataBus();
 
 cc.Class({
     extends: cc.Component,
@@ -74,7 +76,8 @@ cc.Class({
      * @param {*} oritation 
      */
     moveAction: function (direction, status) {
-        console.info(" [ Player.js ] =============== moveAction >>>>>> orientation = ", direction, ", status = ", status);
+        console.info(" [ Player.js ] ================ moveAction >>>>> direction = ", direction, ", status = ", status);
+        console.info(" [ Player.js ] ================ moveAction >>>>>  DataBase.data = ", dataBus.data123);
         let that = this;
         // 移动状态
         if (status == "START") {

@@ -8,7 +8,10 @@
 //  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
 
+let instance = null;
+
 var DataBus = cc.Class({
+
     extends: cc.Component,
 
     statics: {
@@ -32,6 +35,25 @@ var DataBus = cc.Class({
         //         this._bar = value;
         //     }
         // },
+        // data123: {
+        //     get(){
+        //         return this._bar;
+        //     }
+
+        // },
+    },
+
+    ctor: function () {
+        if (instance) return instance;
+        let that = this;
+        instance = this;
+        that.missilePool = new cc.NodePool();
+        that.reset();
+    },
+
+    reset() {
+        let that = this;
+        that.data123 = 111;
     },
 
     removeEnemey: function () {

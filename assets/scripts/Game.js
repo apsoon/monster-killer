@@ -10,6 +10,9 @@
 const Player = require('Player');
 const Common = require('Common');
 
+import DataBus from "../DataBus.js";
+let dataBus = new DataBus();
+
 cc.Class({
     extends: cc.Component,
 
@@ -74,7 +77,11 @@ cc.Class({
 
     onLoad() {
         let that = this;
+        // 移动
         that.buttonUp.node.on(cc.Node.EventType.TOUCH_START, (event) => {
+            console.info(" [ Game.js ] =============== onLoad >>>>> dataBus.data = ", dataBus.data123);
+            dataBus.data123 = 999;
+            console.info(" [ Game.js ] =============== onLoad >>>>> dataBus.data = ", dataBus.data123);
             that.player.moveAction("UP", "START");
         });
         that.buttonUp.node.on(cc.Node.EventType.TOUCH_END, (event) => {
@@ -97,6 +104,19 @@ cc.Class({
         });
         that.buttonRight.node.on(cc.Node.EventType.TOUCH_END, (event) => {
             that.player.moveAction("RIGHT", "STOP");
+        });
+        // 攻击
+        that.buttonUp.node.on(cc.Node.EventType.TOUCH_START, (event) => {
+            that.player.shotAction("UP");
+        });
+        that.buttonDown.node.on(cc.Node.EventType.TOUCH_START, (event) => {
+            that.player.shotAction("DOWN");
+        });
+        that.buttonLeft.node.on(cc.Node.EventType.TOUCH_START, (event) => {
+            that.player.shotAction("LEFT");
+        });
+        that.buttonRight.node.on(cc.Node.EventType.TOUCH_START, (event) => {
+            that.player.shotAction("RIGHT");
         });
     },
 
