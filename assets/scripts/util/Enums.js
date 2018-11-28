@@ -8,18 +8,18 @@
 //  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
 
-// let instance = null;
 
-var DataBus = cc.Class({
+const Direction = cc.Enum({
+    UP: 1,
+    DOWN: 2,
+    LEFT: 3,
+    RIGHT: 4
+});
 
+cc.Class({
     extends: cc.Component,
 
-    statics: {
-        instance : null
-    },
-
     properties: {
-
         // foo: {
         //     // ATTRIBUTES:
         //     default: null,        // The default value will be used only when the component attaching
@@ -35,46 +35,6 @@ var DataBus = cc.Class({
         //         this._bar = value;
         //     }
         // },
-        // data123: {
-        //     get(){
-        //         return this._bar;
-        //     }
-
-        // },
-    },
-
-    ctor: function () {
-        // console.info(" [ DataBus.js ] ================ ctor >>>>>> instance == null ?  ", instance == null);
-        console.info(" [ DataBus.js ] ================ ctor >>>>>> tag");
-        // if (instance != null) return instance;
-        let that = this;
-        // instance = this;
-        that.missilePool = new cc.NodePool();
-        that.reset();
-    },
-
-    getInstance: function () {
-
-    },
-
-    reset() {
-        console.info(" [ DataBus.js ] ================ reset >>>>>> tag  ");
-        let that = this;
-        that.data123 = 111;
-    },
-
-    removeEnemey: function () {
-
-    },
-
-    /**
-     * 删除子弹
-     */
-    removeMissile: function (missile) {
-        let that = this;
-        let temp = that.missiles.shift();
-        temp.visible = false;
-        that.pool.recover('missile', missile);
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -88,6 +48,4 @@ var DataBus = cc.Class({
     // update (dt) {},
 });
 
-DataBus.instance = new DataBus();
-
-module.exports = DataBus;
+export const Enums = { Direction }
