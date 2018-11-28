@@ -10,6 +10,8 @@
 
 // const DataBus = require("DataBus");
 import DataBus from "../DataBus.js";
+import { Enums } from "../util/Enums.js";
+
 let dataBus = DataBus.instance;;
 
 cc.Class({
@@ -21,9 +23,9 @@ cc.Class({
         // 速度
         speed: 0,
         // 朝向
-        // moveDirection: "DOWN",
+        // moveDirection: Enums.Direction.DOWN,
 
-        // missileDirection: "DOWN",
+        // missileDirection: Enums.Direction.DOWN,
 
         // onFire: false,
 
@@ -99,20 +101,20 @@ cc.Class({
         if (that.onMove) {
             // console.info(" [ Player.js ] =============== update >>>>> x before = ", that.node.x, ", y before = ", that.node.y);
             switch (that.moveDirection) {
-                case "UP":
+                case Enums.Direction.UP:
                     // console.info(" [ Player.js ] =============== update >>>>> x before = ", that.node.x, ", y before = ", that.node.y);
                     that.node.y += that.speed * dt;
                     if (that.node.y > that.maxPosY) that.node.y = that.maxPosY;
                     break;
-                case "DOWN":
+                case Enums.Direction.DOWN:
                     that.node.y -= that.speed * dt;
                     if (that.node.y < that.minPosY) that.node.y = that.minPosY;
                     break;
-                case "LEFT":
+                case Enums.Direction.LEFT:
                     that.node.x -= that.speed * dt;
                     if (that.node.x < that.minPosX) that.node.x = that.minPosX;
                     break;
-                case "RIGHT":
+                case Enums.Direction.RIGHT:
                     that.node.x += that.speed * dt;
                     if (that.node.x > that.maxPosX) that.node.x = that.maxPosX;
                     break;

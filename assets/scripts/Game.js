@@ -85,47 +85,47 @@ cc.Class({
             console.info(" [ Game.js ] =============== onLoad >>>>> dataBus.data = ", dataBus.data123);
             dataBus.data123 = 111;
             console.info(" [ Game.js ] =============== onLoad >>>>> dataBus.data = ", dataBus.data123);
-            that.player.moveAction("UP", "START");
+            that.player.moveAction(Enums.Direction.UP, "START");
         });
         that.buttonUp.node.on(cc.Node.EventType.TOUCH_END, (event) => {
-            that.player.moveAction("UP", "STOP");
+            that.player.moveAction(Enums.Direction.UP, "STOP");
         });
         that.buttonDown.node.on(cc.Node.EventType.TOUCH_START, (event) => {
             dataBus.data123 = 222;
             console.info(" [ Game.js ] =============== onLoad >>>>> dataBus.data = ", dataBus.data123);
-            that.player.moveAction("DOWN", "START");
+            that.player.moveAction(Enums.Direction.DOWN, "START");
         });
         that.buttonDown.node.on(cc.Node.EventType.TOUCH_END, (event) => {
-            that.player.moveAction("DOWN", "STOP");
+            that.player.moveAction(Enums.Direction.DOWN, "STOP");
         });
         that.buttonLeft.node.on(cc.Node.EventType.TOUCH_START, (event) => {
             dataBus.data123 = 333;
             console.info(" [ Game.js ] =============== onLoad >>>>> dataBus.data = ", dataBus.data123);
-            that.player.moveAction("LEFT", "START");
+            that.player.moveAction(Enums.Direction.LEFT, "START");
         });
         that.buttonLeft.node.on(cc.Node.EventType.TOUCH_END, (event) => {
-            that.player.moveAction("LEFT", "STOP");
+            that.player.moveAction(Enums.Direction.LEFT, "STOP");
         });
         that.buttonRight.node.on(cc.Node.EventType.TOUCH_START, (event) => {
             dataBus.data123 = 444;
             console.info(" [ Game.js ] =============== onLoad >>>>> dataBus.data = ", dataBus.data123);
-            that.player.moveAction("RIGHT", "START");
+            that.player.moveAction(Enums.Direction.RIGHT, "START");
         });
         that.buttonRight.node.on(cc.Node.EventType.TOUCH_END, (event) => {
-            that.player.moveAction("RIGHT", "STOP");
+            that.player.moveAction(Enums.Direction.RIGHT, "STOP");
         });
         // 攻击
         that.buttonUp.node.on(cc.Node.EventType.TOUCH_START, (event) => {
-            that.player.shotAction("UP");
+            that.player.shotAction(Enums.Direction.UP);
         });
         that.buttonDown.node.on(cc.Node.EventType.TOUCH_START, (event) => {
-            that.player.shotAction("DOWN");
+            that.player.shotAction(Enums.Direction.DOWN);
         });
         that.buttonLeft.node.on(cc.Node.EventType.TOUCH_START, (event) => {
-            that.player.shotAction("LEFT");
+            that.player.shotAction(Enums.Direction.LEFT);
         });
         that.buttonRight.node.on(cc.Node.EventType.TOUCH_START, (event) => {
-            that.player.shotAction("RIGHT");
+            that.player.shotAction(Enums.Direction.RIGHT);
         });
     },
 
