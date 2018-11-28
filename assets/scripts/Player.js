@@ -19,7 +19,13 @@ cc.Class({
         // 速度
         speed: 0,
         // 朝向
-        face: 0,
+        // moveDirection: "DOWN",
+
+        // missileDirection: "DOWN",
+
+        // onFire: false,
+
+        // onMove: false,
         // 子弹资源
         missilePrefab: {
             default: null,
@@ -44,7 +50,13 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {},
+    onLoad() {
+        let that = this;
+        that.minPosY = - that.node.parent.width / 2;
+        that.maxPosY = that.node.parent.width / 2;
+        that.minPosX = - that.node.parent.height / 2;
+        that.maxPosX = that.node.parent.height / 2;
+    },
 
     // 射击动作
     shotAction: function (orientation) {
@@ -61,20 +73,17 @@ cc.Class({
      * 
      * @param {*} oritation 
      */
-    moveAction: function (orientation, status) {
-        console.info(" [ Player.js ] =============== moveAction >>>>>> orientation = ", orientation, ", status = ", status);
+    moveAction: function (direction, status) {
+        console.info(" [ Player.js ] =============== moveAction >>>>>> orientation = ", direction, ", status = ", status);
         let that = this;
-        // switch (oritation) {
-        //     case "UP":
-        //         break;
-        //     case "DOWN":
-        //         break;
-        //     case "LEFT":
-        //         break;
-        //     case "RIGHT":
-        //         break;
-        //     default: break;
-        // }
+        // 移动状态
+        if (status == "START") {
+            that.onMove = true;
+        } else {
+            that.onMove = false;
+        }
+        // 移动方向
+        that.moveDirection = direction;
     },
 
     start() {
@@ -83,6 +92,29 @@ cc.Class({
 
     update(dt) {
         let that = this;
-        that.node.y;
+        if (that.onMove) {
+            console.info(" [ Player.js ] =============== update >>>>> x before = ", that.node.x, ", y before = ", that.node.y);
+            switch (that.moveDirection) {
+                case "UP":
+                    // console.info(" [ Player.js ] =============== update >>>>> x before = ", that.node.x, ", y before = ", that.node.y);
+                    that.node.y += that.speed * dt;
+                    if (that.node.y > that.maxPosY) that.node.y = that.maxPosY;
+                    break;
+                case "DOWN":
+                    that.node.y -= that.speed * dt;
+                    if (that.node.y < that.minPosY) that.node.y = that.minPosY;
+                    break;
+                case "LEFT":
+                    that.node.x -= that.speed * dt;
+                    if (that.node.x < that.minPosX) that.node.x = that.minPosX;
+                    break;
+                case "RIGHT":
+                    that.node.x += that.speed * dt;
+                    if (that.node.x > that.maxPosX) that.node.x = that.maxPosX;
+                    break;
+                default: break;
+            }
+            console.info(" [ Player.js ] =============== update >>>>> x after = ", that.node.x, ", y after = ", that.node.y);
+        }
     },
 });

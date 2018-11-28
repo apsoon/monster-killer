@@ -80,6 +80,24 @@ cc.Class({
         that.buttonUp.node.on(cc.Node.EventType.TOUCH_END, (event) => {
             that.player.moveAction("UP", "STOP");
         });
+        that.buttonDown.node.on(cc.Node.EventType.TOUCH_START, (event) => {
+            that.player.moveAction("DOWN", "START");
+        });
+        that.buttonDown.node.on(cc.Node.EventType.TOUCH_END, (event) => {
+            that.player.moveAction("DOWN", "STOP");
+        });
+        that.buttonLeft.node.on(cc.Node.EventType.TOUCH_START, (event) => {
+            that.player.moveAction("LEFT", "START");
+        });
+        that.buttonLeft.node.on(cc.Node.EventType.TOUCH_END, (event) => {
+            that.player.moveAction("LEFT", "STOP");
+        });
+        that.buttonRight.node.on(cc.Node.EventType.TOUCH_START, (event) => {
+            that.player.moveAction("RIGHT", "START");
+        });
+        that.buttonRight.node.on(cc.Node.EventType.TOUCH_END, (event) => {
+            that.player.moveAction("RIGHT", "STOP");
+        });
     },
 
     // 按钮A事件
