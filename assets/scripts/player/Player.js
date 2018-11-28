@@ -63,12 +63,25 @@ cc.Class({
     },
 
     // 射击动作
-    shotAction: function (orientation) {
+    shotAction: function (direction) {
         let that = this;
         console.info(" palyer.shot ");
-        let x = this.node.x,
-            y = this.node.y,
-            missle = cc.instantiate(this.missilePrefab);
+        let missile = null;
+        if (dataBus.missilePool.size() > 0) {
+            missile = dataBus.missilePool.get();
+        } else {
+            missile = cc.instantiate(that.missilePrefab);
+        }
+        // missile.parent = parentNode
+        console.info(" [ Player.js ] =============== shotAction >>>>> play = ", that);
+        console.info(" [ Player.js ] =============== shotAction >>>>> missile = ", missile);
+        // missile.parent = that.parent;
+        that.node.addChild(missile);
+        missile.getComponent('Missile').init(that.node.x, that.node.y, direction);
+
+        // let x = this.node.x,
+        //     y = this.node.y;
+        //     missle = cc.instantiate(this.missilePrefab);
 
         console.info(this.node.x);
     },

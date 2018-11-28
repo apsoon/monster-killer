@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.42398111335891575,
-      "y": 0.42398111335891575,
+      "x": 0.6037703874082295,
+      "y": 0.6037703874082295,
       "z": 1
     },
     "_quat": {
@@ -88,10 +88,10 @@
     "_level": 1,
     "_components": [
       {
-        "__id__": 45
+        "__id__": 41
       },
       {
-        "__id__": 46
+        "__id__": 42
       }
     ],
     "_prefab": null,
@@ -502,7 +502,7 @@
     "health": 5,
     "speed": 100,
     "missilePrefab": {
-      "__uuid__": "b51eae9b-727e-4595-8304-d10daf9fa3a9"
+      "__uuid__": "7e706093-e956-4a00-8b10-0731a58d1f75"
     },
     "_id": "9damLTUfpHPItD+DpcaR4s"
   },
@@ -1323,13 +1323,13 @@
         "__id__": 29
       },
       {
-        "__id__": 33
+        "__id__": 32
       },
       {
-        "__id__": 37
+        "__id__": 35
       },
       {
-        "__id__": 41
+        "__id__": 38
       }
     ],
     "_active": true,
@@ -1498,11 +1498,7 @@
     },
     "duration": 0.1,
     "zoomScale": 1.2,
-    "clickEvents": [
-      {
-        "__id__": 32
-      }
-    ],
+    "clickEvents": [],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
     "_N$normalColor": {
@@ -1533,15 +1529,6 @@
     "_id": "9eo95TEPdEEou+2d5RtDQ9"
   },
   {
-    "__type__": "cc.ClickEvent",
-    "target": {
-      "__id__": 2
-    },
-    "component": "Game",
-    "handler": "onOptionClicked",
-    "customEventData": "LEFT"
-  },
-  {
     "__type__": "cc.Node",
     "_name": "ButtonB",
     "_objFlags": 0,
@@ -1553,10 +1540,10 @@
     "_level": 3,
     "_components": [
       {
-        "__id__": 34
+        "__id__": 33
       },
       {
-        "__id__": 35
+        "__id__": 34
       }
     ],
     "_prefab": null,
@@ -1610,7 +1597,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 33
+      "__id__": 32
     },
     "_enabled": true,
     "_srcBlendFactor": 770,
@@ -1638,7 +1625,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 33
+      "__id__": 32
     },
     "_enabled": true,
     "transition": 2,
@@ -1658,11 +1645,7 @@
     },
     "duration": 0.1,
     "zoomScale": 1.2,
-    "clickEvents": [
-      {
-        "__id__": 36
-      }
-    ],
+    "clickEvents": [],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
     "_N$normalColor": {
@@ -1688,18 +1671,9 @@
     "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
-      "__id__": 33
+      "__id__": 32
     },
     "_id": "ccTsoIxhVCiJhZbav9UwN1"
-  },
-  {
-    "__type__": "cc.ClickEvent",
-    "target": {
-      "__id__": 2
-    },
-    "component": "Game",
-    "handler": "onOptionClicked",
-    "customEventData": "UP"
   },
   {
     "__type__": "cc.Node",
@@ -1713,10 +1687,10 @@
     "_level": 3,
     "_components": [
       {
-        "__id__": 38
+        "__id__": 36
       },
       {
-        "__id__": 39
+        "__id__": 37
       }
     ],
     "_prefab": null,
@@ -1770,7 +1744,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 37
+      "__id__": 35
     },
     "_enabled": true,
     "_srcBlendFactor": 770,
@@ -1798,7 +1772,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 37
+      "__id__": 35
     },
     "_enabled": true,
     "transition": 2,
@@ -1818,11 +1792,7 @@
     },
     "duration": 0.1,
     "zoomScale": 1.2,
-    "clickEvents": [
-      {
-        "__id__": 40
-      }
-    ],
+    "clickEvents": [],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
     "_N$normalColor": {
@@ -1848,18 +1818,9 @@
     "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
-      "__id__": 37
+      "__id__": 35
     },
     "_id": "7a+6n9z0ZG6KTvIrhyQxAZ"
-  },
-  {
-    "__type__": "cc.ClickEvent",
-    "target": {
-      "__id__": 2
-    },
-    "component": "Game",
-    "handler": "onOptionClicked",
-    "customEventData": "DOWN"
   },
   {
     "__type__": "cc.Node",
@@ -1873,10 +1834,10 @@
     "_level": 3,
     "_components": [
       {
-        "__id__": 42
+        "__id__": 39
       },
       {
-        "__id__": 43
+        "__id__": 40
       }
     ],
     "_prefab": null,
@@ -1930,7 +1891,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 41
+      "__id__": 38
     },
     "_enabled": true,
     "_srcBlendFactor": 770,
@@ -1958,7 +1919,7 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 41
+      "__id__": 38
     },
     "_enabled": true,
     "transition": 2,
@@ -1978,11 +1939,7 @@
     },
     "duration": 0.1,
     "zoomScale": 1.2,
-    "clickEvents": [
-      {
-        "__id__": 44
-      }
-    ],
+    "clickEvents": [],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
     "_N$normalColor": {
@@ -2008,18 +1965,9 @@
     "hoverSprite": null,
     "_N$disabledSprite": null,
     "_N$target": {
-      "__id__": 41
+      "__id__": 38
     },
     "_id": "86Q1LwiM9DwYzbPKW205GF"
-  },
-  {
-    "__type__": "cc.ClickEvent",
-    "target": {
-      "__id__": 2
-    },
-    "component": "Game",
-    "handler": "onOptionClicked",
-    "customEventData": "RIGHT"
   },
   {
     "__type__": "cc.Canvas",
@@ -2053,13 +2001,13 @@
       "__id__": 31
     },
     "buttonB": {
-      "__id__": 35
+      "__id__": 34
     },
     "buttonX": {
-      "__id__": 39
+      "__id__": 37
     },
     "buttonY": {
-      "__id__": 43
+      "__id__": 40
     },
     "buttonUp": {
       "__id__": 18

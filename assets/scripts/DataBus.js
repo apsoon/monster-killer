@@ -15,7 +15,7 @@ var DataBus = cc.Class({
     extends: cc.Component,
 
     statics: {
-        instance : null
+        instance: null
     },
 
     properties: {
@@ -50,6 +50,7 @@ var DataBus = cc.Class({
         let that = this;
         // instance = this;
         that.missilePool = new cc.NodePool();
+
         that.reset();
     },
 
@@ -60,7 +61,7 @@ var DataBus = cc.Class({
     reset() {
         console.info(" [ DataBus.js ] ================ reset >>>>>> tag  ");
         let that = this;
-        that.data123 = 111;
+        that.missiles = [];
     },
 
     removeEnemey: function () {

@@ -8,34 +8,50 @@
 //  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
 
+import { Enums } from "../util/Enums.js";
+
 cc.Class({
     extends: cc.Component,
 
     properties: {
-        // foo: {
-        //     // ATTRIBUTES:
-        //     default: null,        // The default value will be used only when the component attaching
-        //                           // to a node for the first time
-        //     type: cc.SpriteFrame, // optional, default is typeof default
-        //     serializable: true,   // optional, default is true
-        // },
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
+        speed: 0,
     },
 
     // LIFE-CYCLE CALLBACKS:
 
     // onLoad () {},
+    init: function (x, y, dirction) {
+        let that = this;
+        that.node.x = x;
+        that.node.y = y;
+        that.direction = dirction;
+    },
 
-    start () {
+    start() {
 
     },
 
-    // update (dt) {},
+    update(dt) {
+        let that = this;
+        switch (that.dirction) {
+            case Enums.Direction.UP:
+                // console.info(" [ Player.js ] =============== update >>>>> x before = ", that.node.x, ", y before = ", that.node.y);
+                that.node.y += that.speed * dt;
+                // if (that.node.y > that.maxPosY) that.node.y = that.maxPosY;
+                break;
+            case Enums.Direction.DOWN:
+                that.node.y -= that.speed * dt;
+                // if (that.node.y < that.minPosY) that.node.y = that.minPosY;
+                break;
+            case Enums.Direction.LEFT:
+                that.node.x -= that.speed * dt;
+                // if (that.node.x < that.minPosX) that.node.x = that.minPosX;
+                break;
+            case Enums.Direction.RIGHT:
+                that.node.x += that.speed * dt;
+                // if (that.node.x > that.maxPosX) that.node.x = that.maxPosX;
+                break;
+            default: break;
+        }
+    },
 });
