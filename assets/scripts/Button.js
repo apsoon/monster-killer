@@ -8,23 +8,10 @@
 //  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
 
-const DataBus = require("DataBus");
-
 cc.Class({
     extends: cc.Component,
 
     properties: {
-        // 血量
-        health: 0,
-        // 速度
-        speed: 0,
-        // 朝向
-        face: 0,
-        // 子弹资源
-        missilePrefab: {
-            default: null,
-            type: cc.Prefab
-        }
         // foo: {
         //     // ATTRIBUTES:
         //     default: null,        // The default value will be used only when the component attaching
@@ -46,43 +33,9 @@ cc.Class({
 
     // onLoad () {},
 
-    // 射击动作
-    shotAction: function (orientation) {
-        let that = this;
-        console.info(" palyer.shot ");
-        let x = this.node.x,
-            y = this.node.y,
-            missle = cc.instantiate(this.missilePrefab);
-
-        console.info(this.node.x);
-    },
-
-    /**
-     * 
-     * @param {*} oritation 
-     */
-    moveAction: function (orientation, status) {
-        console.info(" [ Player.js ] =============== moveAction >>>>>> orientation = ", orientation, ", status = ", status);
-        let that = this;
-        // switch (oritation) {
-        //     case "UP":
-        //         break;
-        //     case "DOWN":
-        //         break;
-        //     case "LEFT":
-        //         break;
-        //     case "RIGHT":
-        //         break;
-        //     default: break;
-        // }
-    },
-
-    start() {
+    start () {
 
     },
 
-    update(dt) {
-        let that = this;
-        that.node.y;
-    },
+    // update (dt) {},
 });
