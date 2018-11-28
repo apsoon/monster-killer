@@ -16,6 +16,11 @@ const Direction = cc.Enum({
     RIGHT: 4
 });
 
+const RunningAction = cc.Enum({
+    STOP: 0,
+    START: 1
+});
+
 cc.Class({
     extends: cc.Component,
 
@@ -48,4 +53,4 @@ cc.Class({
     // update (dt) {},
 });
 
-export const Enums = { Direction }
+export const Enums = { Direction, RunningAction }

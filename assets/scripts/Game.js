@@ -85,34 +85,34 @@ cc.Class({
             console.info(" [ Game.js ] =============== onLoad >>>>> dataBus.data = ", dataBus.data123);
             dataBus.data123 = 111;
             console.info(" [ Game.js ] =============== onLoad >>>>> dataBus.data = ", dataBus.data123);
-            that.player.moveAction(Enums.Direction.UP, "START");
+            that.player.moveAction(Enums.Direction.UP, Enums.RunningAction.START);
         });
         that.buttonUp.node.on(cc.Node.EventType.TOUCH_END, (event) => {
-            that.player.moveAction(Enums.Direction.UP, "STOP");
+            that.player.moveAction(Enums.Direction.UP, Enums.RunningAction.STOP);
         });
         that.buttonDown.node.on(cc.Node.EventType.TOUCH_START, (event) => {
             dataBus.data123 = 222;
             console.info(" [ Game.js ] =============== onLoad >>>>> dataBus.data = ", dataBus.data123);
-            that.player.moveAction(Enums.Direction.DOWN, "START");
+            that.player.moveAction(Enums.Direction.DOWN, Enums.RunningAction.START);
         });
         that.buttonDown.node.on(cc.Node.EventType.TOUCH_END, (event) => {
-            that.player.moveAction(Enums.Direction.DOWN, "STOP");
+            that.player.moveAction(Enums.Direction.DOWN, Enums.RunningAction.STOP);
         });
         that.buttonLeft.node.on(cc.Node.EventType.TOUCH_START, (event) => {
             dataBus.data123 = 333;
             console.info(" [ Game.js ] =============== onLoad >>>>> dataBus.data = ", dataBus.data123);
-            that.player.moveAction(Enums.Direction.LEFT, "START");
+            that.player.moveAction(Enums.Direction.LEFT, Enums.RunningAction.START);
         });
         that.buttonLeft.node.on(cc.Node.EventType.TOUCH_END, (event) => {
-            that.player.moveAction(Enums.Direction.LEFT, "STOP");
+            that.player.moveAction(Enums.Direction.LEFT, Enums.RunningAction.STOP);
         });
         that.buttonRight.node.on(cc.Node.EventType.TOUCH_START, (event) => {
             dataBus.data123 = 444;
             console.info(" [ Game.js ] =============== onLoad >>>>> dataBus.data = ", dataBus.data123);
-            that.player.moveAction(Enums.Direction.RIGHT, "START");
+            that.player.moveAction(Enums.Direction.RIGHT, Enums.RunningAction.START);
         });
         that.buttonRight.node.on(cc.Node.EventType.TOUCH_END, (event) => {
-            that.player.moveAction(Enums.Direction.RIGHT, "STOP");
+            that.player.moveAction(Enums.Direction.RIGHT, Enums.RunningAction.STOP);
         });
         // 攻击
         that.buttonUp.node.on(cc.Node.EventType.TOUCH_START, (event) => {

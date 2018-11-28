@@ -83,7 +83,7 @@ cc.Class({
         // console.info(" [ Player.js ] ================ moveAction >>>>>  DataBase.object = ", dataBus);
         let that = this;
         // 移动状态
-        if (status == "START") {
+        if (status == Enums.RunningAction.START) {
             that.onMove = true;
         } else {
             that.onMove = false;
