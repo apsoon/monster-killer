@@ -431,18 +431,18 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 60,
-      "height": 74
+      "width": 64,
+      "height": 64
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": -0.3168879251677762,
-      "y": 0.29612288604713854
+      "x": 0.5,
+      "y": 0.5
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -65,
-      "y": -41,
+      "x": -32,
+      "y": -26,
       "z": 0
     },
     "_scale": {

@@ -188,7 +188,6 @@ cc.Class({
         }
         missile.parent = parentNode;  // 将生成的子弹加入节点树
         missile.getComponent("Missile").init(that.player.node.x, that.player.node.y, direction);  //接下来就可以调用 missile 身上的脚本进行初始化
-        console.info(" [ Game.js ] ============== createMissile >>>>> missile = ", missile);
     },
 
     /**
