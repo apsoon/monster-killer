@@ -1,6 +1,8 @@
 import { Enums } from "./util/Enums.js";
 import Player from "./player/Player.js";
 
+let INIT_MISSILE_POOO_COUNT = 10;
+
 cc.Class({
     extends: cc.Component,
 
@@ -114,5 +116,41 @@ cc.Class({
         that.buttonY.node.on(cc.Node.EventType.TOUCH_START, (event) => {
             that.player.shotAction(Enums.Direction.RIGHT);
         });
+    },
+
+    /**
+     * 初始化子弹对象池
+     */
+    initMissilePool: function () {
+        let that = this;
+        that.missilePool = new cc.NodePool();
+        for (let i = 0; i < INIT_MISSILE_POOO_COUNT; i++) {
+            let missile = cc.instantiate(that.missilePrefab); // 创建节点
+            that.missilePool.put(missile); // 通过 putInPool 接口放入对象池
+        }
+    },
+
+    /**
+     * 创建子弹
+     * @param {*} parentNode 
+     */
+    createMissile: function (parentNode) {
+        let that = this;
+        let missile = null;
+        if (that.missilePool.size() > 0) { // 通过 size 接口判断对象池中是否有空闲的对象
+            missile = that.missilePool.get();
+        } else {  // 如果没有空闲对象，也就是对象池中备用对象不够时，我们就用 cc.instantiate 重新创建
+            missile = cc.instantiate(that.missilePrefab);
+        }
+        missile.parent = parentNode;  // 将生成的子弹加入节点树
+        missile.getComponent("Missile").init();  //接下来就可以调用 missile 身上的脚本进行初始化
+    },
+
+    /**
+     * 子弹失效 超出边界或击中敌人
+     */
+    onMissileUsed: function (missile) {
+        let that = thisl;
+        that.missilePool.put(missile); // 和初始化时的方法一样，将节点放进对象池，这个方法会同时调用节点的 removeFromParent
     },
 });
