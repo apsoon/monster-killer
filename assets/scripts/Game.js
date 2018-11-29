@@ -217,7 +217,7 @@ cc.Class({
     createMonster: function (parentNode, x, y) {
         let that = this;
         let monster = null;
-        if (that.monsterPool) {
+        if (that.monsterPool.size() > 0) {
             monster = that.monsterPool.get();
         } else {
             monster = cc.instantiate(that.monsterPrefab);
