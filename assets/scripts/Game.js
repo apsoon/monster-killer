@@ -72,6 +72,7 @@ cc.Class({
         that.initMoveButton();
         that.initShotButton();
         that.initMissilePool();
+        that.initMonsterPool();
         // 生成怪物
         that.schedule(function () {
             let rand = Math.floor(Math.random() * 4) + 1,
@@ -187,7 +188,7 @@ cc.Class({
             missile = cc.instantiate(that.missilePrefab);
         }
         missile.parent = parentNode;  // 将生成的子弹加入节点树
-        missile.getComponent("Missile").init(that.player.node.x, that.player.node.y, direction);  //接下来就可以调用 missile 身上的脚本进行初始化
+        missile.getComponent("Missile").init(that, that.player.node.x, that.player.node.y, direction);  //接下来就可以调用 missile 身上的脚本进行初始化
     },
 
     /**
@@ -222,7 +223,7 @@ cc.Class({
             monster = cc.instantiate(that.monsterPrefab);
         }
         monster.parent = parentNode;
-        monster.getComponent("Monster").init(x, y);
+        monster.getComponent("Monster").init(that, x, y);
     },
 
     /**

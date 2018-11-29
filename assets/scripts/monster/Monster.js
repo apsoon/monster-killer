@@ -16,15 +16,20 @@ cc.Class({
         health: 0,
     },
 
-    init: function (x, y) {
+    init: function (game, x, y) {
         let that = this;
+        that.game = game
         that.node.x = x;
         that.node.y = y;
     },
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {},
+    onLoad() {
+        let that = this;
+        var manager = cc.director.getCollisionManager();
+        manager.enabled = true;
+    },
 
     start() {
 
@@ -47,7 +52,18 @@ cc.Class({
                 that.node.x -= that.speed * dt;
                 break;
         }
+        // console.info(" [ Monster.js ] ================ update >>>>> that =  ", that.game);
 
+    },
+
+    onCollisionEnter: function (other, self) {
+        console.info(" [ Monster.js ] ================== onCollisionEnter >>>>> other = ", other, ", self = ", self);
+        let that = this;
+        // 被子弹打中扣一滴血 如果血为0 怪物消失 得一分
+        that.health -= 1;
+        if (that.health <= 0) {
+            that.game.onMonsterKilled(that.node);
+        }
     },
 
     /**

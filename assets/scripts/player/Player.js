@@ -22,6 +22,8 @@ cc.Class({
         // 动画
         that.anim = that.getComponent(cc.Animation);
         console.info(that);
+        var manager = cc.director.getCollisionManager();
+        manager.enabled = true;
     },
 
     // 射击动作
@@ -88,22 +90,26 @@ cc.Class({
             switch (that.moveDirection) {
                 case Enums.Direction.UP:
                     that.node.y += that.speed * dt;
-                    if (that.node.y > that.maxPosY) that.node.y = that.maxPosY;
+                    // if (that.node.y > that.maxPosY) that.node.y = that.maxPosY;
                     break;
                 case Enums.Direction.DOWN:
                     that.node.y -= that.speed * dt;
-                    if (that.node.y < that.minPosY) that.node.y = that.minPosY;
+                    // if (that.node.y < that.minPosY) that.node.y = that.minPosY;
                     break;
                 case Enums.Direction.LEFT:
                     that.node.x -= that.speed * dt;
-                    if (that.node.x < that.minPosX) that.node.x = that.minPosX;
+                    // if (that.node.x < that.minPosX) that.node.x = that.minPosX;
                     break;
                 case Enums.Direction.RIGHT:
                     that.node.x += that.speed * dt;
-                    if (that.node.x > that.maxPosX) that.node.x = that.maxPosX;
+                    // if (that.node.x > that.maxPosX) that.node.x = that.maxPosX;
                     break;
                 default: break;
             }
         }
+    },
+
+    onCollisionEnter: function (other, self) {
+        console.info(" [ Player.js ] ================== onCollisionEnter >>>>> other = ", other, ", self = ", self);
     },
 });

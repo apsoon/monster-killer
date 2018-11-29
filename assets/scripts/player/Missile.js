@@ -9,10 +9,14 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {},
-    init: function (x, y, direction) {
-        console.info(" [ Missile.js ] =============== init >>>>>> tag ");
+    onLoad() {
+        var manager = cc.director.getCollisionManager();
+        manager.enabled = true;
+    },
+
+    init: function (game, x, y, direction) {
         let that = this;
+        that.game = game;
         that.node.x = x;
         that.node.y = y;
         that.direction = direction;
@@ -44,5 +48,12 @@ cc.Class({
                 break;
             default: break;
         }
+    },
+
+    onCollisionEnter: function (other, self) {
+        let that = this;
+        console.info(" [ Missile.js ] ================== onCollisionEnter >>>>> other = ", other, ", self = ", self);
+        // 子弹打中敌人 子弹消失 
+        that.game.onMissileUsed(that.node);
     },
 });
