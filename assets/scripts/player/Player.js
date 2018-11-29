@@ -9,11 +9,6 @@ cc.Class({
         // 速度
         speed: 0,
         // 朝向
-        // 子弹资源
-        missilePrefab: {
-            default: null,
-            type: cc.Prefab
-        }
     },
 
     // LIFE-CYCLE CALLBACKS:

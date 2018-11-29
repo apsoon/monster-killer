@@ -5,17 +5,21 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-
+        // 子弹
+        missilePrefab: {
+            default: null,
+            type: cc.Prefab
+        },
+        // 玩家
         player: {
             default: null,
             type: Player
         },
-        // 按钮A
+        // 射击按钮
         buttonA: {
             default: null,
             type: cc.Button
         },
-        // 按钮B
         buttonB: {
             default: null,
             type: cc.Button
@@ -28,6 +32,7 @@ cc.Class({
             default: null,
             type: cc.Button
         },
+        // 方向按钮
         buttonUp: {
             default: null,
             type: cc.Button
@@ -50,7 +55,22 @@ cc.Class({
 
     onLoad() {
         let that = this;
-        // 移动
+        that.initMoveButton();
+        that.initShotButton();
+        // 攻击
+    },
+
+    start() {
+
+    },
+
+    // update (dt) {},
+
+    /**
+     * 初始化移动按钮监听
+     */
+    initMoveButton: function () {
+        let that = this;
         that.buttonUp.node.on(cc.Node.EventType.TOUCH_START, (event) => {
             that.player.moveAction(Enums.Direction.UP, Enums.RunningAction.START);
         });
@@ -75,7 +95,13 @@ cc.Class({
         that.buttonRight.node.on(cc.Node.EventType.TOUCH_END, (event) => {
             that.player.moveAction(Enums.Direction.RIGHT, Enums.RunningAction.STOP);
         });
-        // 攻击
+    },
+
+    /**
+     * 初始化攻击按钮
+     */
+    initShotButton: function () {
+        let that = this;
         that.buttonB.node.on(cc.Node.EventType.TOUCH_START, (event) => {
             that.player.shotAction(Enums.Direction.UP);
         });
@@ -89,10 +115,4 @@ cc.Class({
             that.player.shotAction(Enums.Direction.RIGHT);
         });
     },
-
-    start() {
-
-    },
-
-    // update (dt) {},
 });
