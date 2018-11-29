@@ -1,18 +1,4 @@
-// Learn cc.Class:
-//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/class.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/class.html
-// Learn Attribute:
-//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/reference/attributes.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
-
-// const DataBus = require("DataBus");
-import DataBus from "../DataBus.js";
 import { Enums } from "../util/Enums.js";
-
-let dataBus = DataBus.instance;;
 
 cc.Class({
     extends: cc.Component,
@@ -23,33 +9,11 @@ cc.Class({
         // 速度
         speed: 0,
         // 朝向
-        // moveDirection: Enums.Direction.DOWN,
-
-        // missileDirection: Enums.Direction.DOWN,
-
-        // onFire: false,
-
-        // onMove: false,
         // 子弹资源
         missilePrefab: {
             default: null,
             type: cc.Prefab
         }
-        // foo: {
-        //     // ATTRIBUTES:
-        //     default: null,        // The default value will be used only when the component attaching
-        //                           // to a node for the first time
-        //     type: cc.SpriteFrame, // optional, default is typeof default
-        //     serializable: true,   // optional, default is true
-        // },
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -65,35 +29,14 @@ cc.Class({
     // 射击动作
     shotAction: function (direction) {
         let that = this;
-        console.info(" palyer.shot ");
-        let missile = null;
-        if (dataBus.missilePool.size() > 0) {
-            missile = dataBus.missilePool.get();
-        } else {
-            missile = cc.instantiate(that.missilePrefab);
-        }
-        // missile.parent = parentNode
-        console.info(" [ Player.js ] =============== shotAction >>>>> play = ", that);
-        console.info(" [ Player.js ] =============== shotAction >>>>> missile = ", missile);
-        // missile.parent = that.parent;
-        that.node.addChild(missile);
-        missile.getComponent('Missile').init(that.node.x, that.node.y, direction);
-
-        // let x = this.node.x,
-        //     y = this.node.y;
-        //     missle = cc.instantiate(this.missilePrefab);
-
-        console.info(this.node.x);
     },
+
     /**
      * 
      * @param {*} direction 
      * @param {*} status 
      */
     moveAction: function (direction, status) {
-        // console.info(" [ Player.js ] ================ moveAction >>>>> direction = ", direction, ", status = ", status);
-        console.info(" [ Player.js ] ================ moveAction >>>>>  DataBase.data = ", dataBus.data123);
-        // console.info(" [ Player.js ] ================ moveAction >>>>>  DataBase.object = ", dataBus);
         let that = this;
         // 移动状态
         if (status == Enums.RunningAction.START) {
@@ -112,10 +55,8 @@ cc.Class({
     update(dt) {
         let that = this;
         if (that.onMove) {
-            // console.info(" [ Player.js ] =============== update >>>>> x before = ", that.node.x, ", y before = ", that.node.y);
             switch (that.moveDirection) {
                 case Enums.Direction.UP:
-                    // console.info(" [ Player.js ] =============== update >>>>> x before = ", that.node.x, ", y before = ", that.node.y);
                     that.node.y += that.speed * dt;
                     if (that.node.y > that.maxPosY) that.node.y = that.maxPosY;
                     break;
@@ -133,7 +74,6 @@ cc.Class({
                     break;
                 default: break;
             }
-            // console.info(" [ Player.js ] =============== update >>>>> x after = ", that.node.x, ", y after = ", that.node.y);
         }
     },
 });
