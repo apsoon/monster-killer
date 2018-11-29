@@ -59,6 +59,7 @@ cc.Class({
         let that = this;
         that.initMoveButton();
         that.initShotButton();
+        that.initMissilePool();
         // 攻击
     },
 
@@ -106,15 +107,19 @@ cc.Class({
         let that = this;
         that.buttonB.node.on(cc.Node.EventType.TOUCH_START, (event) => {
             that.player.shotAction(Enums.Direction.UP);
+            that.createMissile(that.node, Enums.Direction.UP);
         });
         that.buttonX.node.on(cc.Node.EventType.TOUCH_START, (event) => {
-            that.player.shotAction(Enums.Direction.DOWN);
+            that.player.shotAction(Enums.Direction.DOWN)
+            that.createMissile(that.node, Enums.Direction.DOWN);
         });
         that.buttonA.node.on(cc.Node.EventType.TOUCH_START, (event) => {
             that.player.shotAction(Enums.Direction.LEFT);
+            that.createMissile(that.node, Enums.Direction.LEFT);
         });
         that.buttonY.node.on(cc.Node.EventType.TOUCH_START, (event) => {
             that.player.shotAction(Enums.Direction.RIGHT);
+            that.createMissile(that.node, Enums.Direction.RIGHT);
         });
     },
 
@@ -134,7 +139,7 @@ cc.Class({
      * 创建子弹
      * @param {*} parentNode 
      */
-    createMissile: function (parentNode) {
+    createMissile: function (parentNode, direction) {
         let that = this;
         let missile = null;
         if (that.missilePool.size() > 0) { // 通过 size 接口判断对象池中是否有空闲的对象
@@ -143,7 +148,8 @@ cc.Class({
             missile = cc.instantiate(that.missilePrefab);
         }
         missile.parent = parentNode;  // 将生成的子弹加入节点树
-        missile.getComponent("Missile").init();  //接下来就可以调用 missile 身上的脚本进行初始化
+        missile.getComponent("Missile").init(that.player.node.x, that.player.node.y, direction);  //接下来就可以调用 missile 身上的脚本进行初始化
+        console.info(" [ Game.js ] ============== createMissile >>>>> missile = ", missile);
     },
 
     /**
