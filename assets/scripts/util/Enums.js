@@ -11,9 +11,9 @@
 
 const Direction = cc.Enum({
     UP: 1,
-    DOWN: 2,
-    LEFT: 3,
-    RIGHT: 4
+    DOWN: 3,
+    LEFT: 4,
+    RIGHT: 2
 });
 
 const RunningAction = cc.Enum({

@@ -61,12 +61,44 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
+    // initMonsterGenerator: function () {
+    //     let that = this;
+    //     // that.monster
+    // },
+
     onLoad() {
         let that = this;
+        // 初始化
         that.initMoveButton();
         that.initShotButton();
         that.initMissilePool();
-        // 攻击
+        // 生成怪物
+        that.schedule(function () {
+            let rand = Math.floor(Math.random() * 4 + 1),
+                seed = Math.random(),
+                abs = Math.random(),
+                monsterX = 0,
+                monsterY = 0;
+            switch (rand) {
+                case 1: // up
+                    monsterX = abs * seed * that.node.width / 2;
+                    monsterY = that.node.height / 2;
+                    break;
+                case 2: // RIGHT
+                    monsterX = that.node.width / 2;
+                    monsterY = abs * seed * that.node.height / 2;
+                    break;
+                case 3: // DOWN
+                    monsterX = abs * seed * that.node.width / 2;
+                    monsterY = - that.node.height / 2;
+                    break;
+                case 4: // LEFT
+                    monsterX = that.node.width / 2;
+                    monsterY = abs * seed * that.node.height / 2;
+                    break;
+            }
+            that.createMonster(that.node, monsterX, monsterY);
+        }, 3);
     },
 
     start() {
@@ -181,7 +213,7 @@ cc.Class({
     /**
      * 创建怪物
      */
-    createMonster: function (parentNode) {
+    createMonster: function (parentNode, x, y) {
         let that = this;
         let monster = null;
         if (that.monsterPool) {
@@ -190,7 +222,7 @@ cc.Class({
             monster = cc.instantiate(that.monsterPrefab);
         }
         monster.parent = parentNode;
-        monster.getComponent("Monster").init();
+        monster.getComponent("Monster").init(x, y);
     },
 
     /**
