@@ -19,6 +19,9 @@ cc.Class({
         that.maxPosY = that.node.parent.width / 2;
         that.minPosX = - that.node.parent.height / 2;
         that.maxPosX = that.node.parent.height / 2;
+        // 动画
+        that.anim = that.getComponent(cc.Animation);
+        console.info(that);
     },
 
     // 射击动作
@@ -36,8 +39,40 @@ cc.Class({
         // 移动状态
         if (status == Enums.RunningAction.START) {
             that.onMove = true;
+            switch (that.moveDirection) {
+                case Enums.Direction.UP:
+                    that.anim.playAdditive("ribaiasu_up");
+                    break;
+                case Enums.Direction.DOWN:
+                    that.anim.playAdditive("ribaiasu_down");
+                    break;
+                case Enums.Direction.LEFT:
+                    that.anim.playAdditive("ribaiasu_left");
+                    break;
+                case Enums.Direction.RIGHT:
+                    that.anim.playAdditive("ribaiasu_right");
+                    break;
+                default: break;
+            }
         } else {
             that.onMove = false;
+            that.anim.stop();
+            // switch (that.moveDirection) {
+            //     case Enums.Direction.UP:
+            //         // that.anim.stop("ribaiasu_up");
+            //         that.anim.stop()
+            //         break;
+            //     case Enums.Direction.DOWN:
+            //         that.anim.stop("ribaiasu_down");
+            //         break;
+            //     case Enums.Direction.LEFT:
+            //         that.anim.stop("ribaiasu_left");
+            //         break;
+            //     case Enums.Direction.RIGHT:
+            //         that.anim.stop("ribaiasu_right");
+            //         break;
+            //     default: break;
+            // }
         }
         // 移动方向
         that.moveDirection = direction;
