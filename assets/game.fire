@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.493407131661442,
-      "y": 0.493407131661442,
+      "x": 0.529365234375,
+      "y": 0.529365234375,
       "z": 1
     },
     "_quat": {
@@ -92,6 +92,9 @@
       },
       {
         "__id__": 42
+      },
+      {
+        "__id__": 43
       }
     ],
     "_prefab": null,
@@ -1991,11 +1994,14 @@
       "__id__": 2
     },
     "_enabled": true,
+    "player": {
+      "__id__": 11
+    },
     "missilePrefab": {
       "__uuid__": "7e706093-e956-4a00-8b10-0731a58d1f75"
     },
-    "player": {
-      "__id__": 11
+    "monsterPrefab": {
+      "__uuid__": "17b58435-adf9-4b26-bab6-5df7964deac6"
     },
     "buttonA": {
       "__id__": 31
@@ -2022,5 +2028,17 @@
       "__id__": 27
     },
     "_id": "e5pSPoBkNOyKL7LRVmSurM"
+  },
+  {
+    "__type__": "d318aHjIiRLiIm2l5KvKeJR",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 2
+    },
+    "_enabled": true,
+    "speed": 0,
+    "health": 0,
+    "_id": "50kdC4qp9PzImX0Wh9XMCy"
   }
 ]

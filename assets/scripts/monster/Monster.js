@@ -16,6 +16,10 @@ cc.Class({
         health: 0,
     },
 
+    init: function () {
+
+    },
+
     // LIFE-CYCLE CALLBACKS:
 
     // onLoad () {},

@@ -17,7 +17,7 @@
     "_parent": null,
     "_children": [],
     "_active": true,
-    "_level": 2,
+    "_level": 1,
     "_components": [
       {
         "__id__": 2
@@ -44,8 +44,8 @@
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 0.5,
-      "y": 0.5
+      "x": 0.54,
+      "y": 0.45555555555555555
     },
     "_position": {
       "__type__": "cc.Vec3",
@@ -120,9 +120,9 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "17b58435-adf9-4b26-bab6-5df7964deac6"
     },
-    "fileId": "11Q6pKG8pGl6W4vaziNg1J",
+    "fileId": "56NBDQ0u5BHpV8UmGJCGQ7",
     "sync": false
   }
 ]

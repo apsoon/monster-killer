@@ -1,21 +1,27 @@
 import { Enums } from "./util/Enums.js";
 import Player from "./player/Player.js";
 
-let INIT_MISSILE_POOO_COUNT = 10;
+let INIT_MISSILE_POOL_COUNT = 10;
+let INIT_MONSTER_POOL_COUNT = 10;
 
 cc.Class({
     extends: cc.Component,
 
     properties: {
+        // 玩家
+        player: {
+            default: null,
+            type: Player
+        },
         // 子弹
         missilePrefab: {
             default: null,
             type: cc.Prefab
         },
-        // 玩家
-        player: {
+        // 怪物
+        monsterPrefab: {
             default: null,
-            type: Player
+            type: cc.Prefab,
         },
         // 射击按钮
         buttonA: {
@@ -129,7 +135,7 @@ cc.Class({
     initMissilePool: function () {
         let that = this;
         that.missilePool = new cc.NodePool();
-        for (let i = 0; i < INIT_MISSILE_POOO_COUNT; i++) {
+        for (let i = 0; i < INIT_MISSILE_POOL_COUNT; i++) {
             let missile = cc.instantiate(that.missilePrefab); // 创建节点
             that.missilePool.put(missile); // 通过 putInPool 接口放入对象池
         }
@@ -156,7 +162,42 @@ cc.Class({
      * 子弹失效 超出边界或击中敌人
      */
     onMissileUsed: function (missile) {
-        let that = thisl;
+        let that = this;
         that.missilePool.put(missile); // 和初始化时的方法一样，将节点放进对象池，这个方法会同时调用节点的 removeFromParent
     },
+
+    /**
+     * 初始化怪物对象池
+     */
+    initMonsterPool: function () {
+        let that = this;
+        that.monsterPool = new cc.NodePool();
+        for (let i = 0; i < INIT_MONSTER_POOL_COUNT; i++) {
+            let monster = cc.instantiate(that.monsterPrefab);
+            that.monsterPool.put(monster);
+        }
+    },
+
+    /**
+     * 创建怪物
+     */
+    createMonster: function (parentNode) {
+        let that = this;
+        let monster = null;
+        if (that.monsterPool) {
+            monster = that.monsterPool.get();
+        } else {
+            monster = cc.instantiate(that.monsterPrefab);
+        }
+        monster.parent = parentNode;
+        monster.getComponent("Monster").init();
+    },
+
+    /**
+     * 怪物死亡
+     */
+    onMonsterKilled: function (monster) {
+        let that = this;
+        that.monsterPool.put(monster);
+    }
 });
