@@ -30,5 +30,30 @@ cc.Class({
 
     },
 
-    // update (dt) {},
+    update(dt) {
+        let that = this,
+            rand = Math.floor(Math.random() * 4) + 1;
+        switch (rand) {
+            case 1: // up
+                that.node.x += that.speed * dt;
+                break;
+            case 2: // RIGHT
+                that.node.y += that.speed * dt;
+                break;
+            case 3: // DOWN
+                that.node.y -= that.speed * dt;
+                break;
+            case 4: // LEFT
+                that.node.x -= that.speed * dt;
+                break;
+        }
+
+    },
+
+    /**
+     * 移动动作
+     */
+    move: function () {
+
+    }
 });

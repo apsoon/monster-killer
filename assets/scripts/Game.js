@@ -74,11 +74,12 @@ cc.Class({
         that.initMissilePool();
         // 生成怪物
         that.schedule(function () {
-            let rand = Math.floor(Math.random() * 4 + 1),
+            let rand = Math.floor(Math.random() * 4) + 1,
                 seed = Math.random(),
                 abs = Math.random(),
                 monsterX = 0,
                 monsterY = 0;
+            abs = abs > 0.5 ? 1 : -1;
             switch (rand) {
                 case 1: // up
                     monsterX = abs * seed * that.node.width / 2;
