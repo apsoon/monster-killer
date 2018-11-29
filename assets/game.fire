@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.3940185222012399,
-      "y": 0.3940185222012399,
+      "x": 0.38112478995472376,
+      "y": 0.38112478995472376,
       "z": 1
     },
     "_quat": {
@@ -752,18 +752,18 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 50,
-      "height": 50
+      "width": 80,
+      "height": 80
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 10.220380541550332,
-      "y": 3.726301341676859
+      "x": 0.5,
+      "y": 0.5
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
+      "x": -550,
+      "y": -100,
       "z": 0
     },
     "_scale": {
@@ -899,18 +899,18 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 50,
-      "height": 50
+      "width": 80,
+      "height": 80
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 10.192330556537474,
-      "y": 6.788375307612221
+      "x": 0.5,
+      "y": 0.5
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
+      "x": -550,
+      "y": -300,
       "z": 0
     },
     "_scale": {
@@ -1046,18 +1046,18 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 50,
-      "height": 50
+      "width": 80,
+      "height": 80
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 12.041903054062674,
-      "y": 5.15288001457718
+      "x": 0.5,
+      "y": 0.5
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
+      "x": -650,
+      "y": -200,
       "z": 0
     },
     "_scale": {
@@ -1193,18 +1193,18 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 50,
-      "height": 50
+      "width": 80,
+      "height": 80
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": 8.416884608812708,
-      "y": 5.2682179322806935
+      "x": 0.5,
+      "y": 0.5
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
+      "x": -450,
+      "y": -200,
       "z": 0
     },
     "_scale": {
@@ -1410,18 +1410,18 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 50,
-      "height": 50
+      "width": 80,
+      "height": 80
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": -4.646206096775865,
-      "y": 0.8166004656203956
+      "x": 0.5,
+      "y": 0.5
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 83,
-      "y": -190,
+      "x": 450,
+      "y": -200,
       "z": 0
     },
     "_scale": {
@@ -1557,18 +1557,18 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 50,
-      "height": 50
+      "width": 80,
+      "height": 80
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": -17.310089859914655,
-      "y": -3.022678088715139
+      "x": 0.5,
+      "y": 0.5
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -480,
-      "y": -320,
+      "x": 550,
+      "y": -100,
       "z": 0
     },
     "_scale": {
@@ -1704,18 +1704,18 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 50,
-      "height": 50
+      "width": 80,
+      "height": 80
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": -7.86043686475001,
-      "y": 6.247998308783037
+      "x": 0.5,
+      "y": 0.5
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
+      "x": 550,
+      "y": -300,
       "z": 0
     },
     "_scale": {
@@ -1851,18 +1851,18 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 50,
-      "height": 50
+      "width": 80,
+      "height": 80
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
-      "x": -9.499920849632094,
-      "y": 4.617922757061871
+      "x": 0.5,
+      "y": 0.5
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
+      "x": 650,
+      "y": -200,
       "z": 0
     },
     "_scale": {
