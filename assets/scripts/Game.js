@@ -83,18 +83,18 @@ cc.Class({
             switch (rand) {
                 case 1: // up
                     monsterX = abs * seed * that.node.width / 2;
-                    monsterY = that.node.height / 2;
+                    monsterY = that.node.height / 2 - 100;
                     break;
                 case 2: // RIGHT
-                    monsterX = that.node.width / 2;
+                    monsterX = that.node.width / 2 - 100;
                     monsterY = abs * seed * that.node.height / 2;
                     break;
                 case 3: // DOWN
                     monsterX = abs * seed * that.node.width / 2;
-                    monsterY = - that.node.height / 2;
+                    monsterY = - that.node.height / 2 + 100;
                     break;
                 case 4: // LEFT
-                    monsterX = that.node.width / 2;
+                    monsterX = -that.node.width / 2 + 100;
                     monsterY = abs * seed * that.node.height / 2;
                     break;
             }
