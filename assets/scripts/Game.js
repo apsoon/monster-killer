@@ -13,6 +13,11 @@ cc.Class({
             default: null,
             type: cc.Label
         },
+        // 血量展示
+        healthDisplay: {
+            default: null,
+            type: cc.Label
+        },
         // 玩家
         player: {
             default: null,
@@ -80,6 +85,7 @@ cc.Class({
         that.initMonsterPool();
         that.score = 0;
         that.scoreDisplay.string = 'Score: ' + this.score.toString();
+        that.healthDisplay.string = 'Health: ' + that.player.health;
         // 生成怪物
         that.schedule(function () {
             let rand = Math.floor(Math.random() * 4) + 1,
@@ -120,7 +126,10 @@ cc.Class({
 
     },
 
-    // update (dt) {},
+    update(dt) {
+        let that = this;
+        that.healthDisplay.string = 'Health: ' + that.player.health;
+    },
 
     /**
      * 初始化移动按钮监听

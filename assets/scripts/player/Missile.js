@@ -51,9 +51,10 @@ cc.Class({
     },
 
     onCollisionEnter: function (other, self) {
-        let that = this;
-        console.info(" [ Missile.js ] ================== onCollisionEnter >>>>> other = ", other, ", self = ", self);
         // 子弹打中敌人 子弹消失 
-        that.game.onMissileUsed(that.node);
+        if (other.node.group == "monster") {
+            let that = this;
+            that.game.onMissileUsed(that.node);
+        }
     },
 });

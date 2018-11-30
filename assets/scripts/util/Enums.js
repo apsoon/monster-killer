@@ -16,6 +16,12 @@ const Direction = cc.Enum({
     RIGHT: 2
 });
 
+const Group = cc.Enum({
+    PLAYER: 1,
+    MONSTER: 2,
+    MISSILE: 3
+});
+
 const RunningAction = cc.Enum({
     STOP: 0,
     START: 1

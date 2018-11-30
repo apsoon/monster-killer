@@ -57,13 +57,14 @@ cc.Class({
     },
 
     onCollisionEnter: function (other, self) {
-        console.info(" [ Monster.js ] ================== onCollisionEnter >>>>> other = ", other, ", self = ", self);
-        let that = this;
         // 被子弹打中扣一滴血 如果血为0 怪物消失 得一分
-        that.health -= 1;
-        if (that.health <= 0) {
-            that.game.onMonsterKilled(that.node);
-            that.game.addScore(1);
+        if (other.node.group == "missile") {
+            let that = this;
+            that.health -= 1;
+            if (that.health <= 0) {
+                that.game.onMonsterKilled(that.node);
+                that.game.addScore(1);
+            }
         }
     },
 

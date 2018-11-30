@@ -110,6 +110,12 @@ cc.Class({
     },
 
     onCollisionEnter: function (other, self) {
-        console.info(" [ Player.js ] ================== onCollisionEnter >>>>> other = ", other, ", self = ", self);
+        let that = this;
+        if (other.node.group == "monster") {
+            that.health -= 1;
+            // if (that.health <= 0) {
+
+            // }
+        }
     },
 });
