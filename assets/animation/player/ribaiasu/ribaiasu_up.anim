@@ -3,7 +3,7 @@
   "_name": "ribaiasu_up",
   "_objFlags": 0,
   "_native": "",
-  "_duration": 0.5166666666666667,
+  "_duration": 0.6833333333333333,
   "sample": 60,
   "speed": 1,
   "wrapMode": "2",
@@ -31,6 +31,12 @@
           },
           {
             "frame": 0.5,
+            "value": {
+              "__uuid__": "df7e5c61-ca24-4767-8b3f-1f7416db1b53"
+            }
+          },
+          {
+            "frame": 0.6666666666666666,
             "value": {
               "__uuid__": "df7e5c61-ca24-4767-8b3f-1f7416db1b53"
             }
