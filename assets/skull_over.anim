@@ -1,0 +1,61 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "skull_over",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.5166666666666667,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 1,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "0bd14bc4-098b-444e-bbaf-6c870de0144c"
+            }
+          },
+          {
+            "frame": 0.08333333333333333,
+            "value": {
+              "__uuid__": "4e192d2c-45d3-4d3a-8544-18600f00de15"
+            }
+          },
+          {
+            "frame": 0.16666666666666666,
+            "value": {
+              "__uuid__": "dca9197a-6947-4799-a9c9-3fc92aad6e70"
+            }
+          },
+          {
+            "frame": 0.25,
+            "value": {
+              "__uuid__": "de4b18bd-448f-4960-bb7c-a0893722e530"
+            }
+          },
+          {
+            "frame": 0.3333333333333333,
+            "value": {
+              "__uuid__": "3c15ca92-359b-4806-8266-f9bd3770cca5"
+            }
+          },
+          {
+            "frame": 0.4166666666666667,
+            "value": {
+              "__uuid__": "90f86832-e77c-4293-b09d-206c99899458"
+            }
+          },
+          {
+            "frame": 0.5,
+            "value": {
+              "__uuid__": "ad27daf1-2507-4e79-bd71-55380856766d"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}
