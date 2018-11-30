@@ -8,6 +8,11 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
+        // 分数展示
+        scoreDisplay: {
+            default: null,
+            type: cc.Label
+        },
         // 玩家
         player: {
             default: null,
@@ -73,6 +78,8 @@ cc.Class({
         that.initShotButton();
         that.initMissilePool();
         that.initMonsterPool();
+        that.score = 0;
+        that.scoreDisplay.string = 'Score: ' + this.score.toString();
         // 生成怪物
         that.schedule(function () {
             let rand = Math.floor(Math.random() * 4) + 1,
@@ -101,6 +108,12 @@ cc.Class({
             }
             that.createMonster(that.node, monsterX, monsterY);
         }, 3);
+    },
+
+    addScore: function (score) {
+        let that = this;
+        that.score += score;
+        that.scoreDisplay.string = 'Score: ' + this.score.toString();
     },
 
     start() {

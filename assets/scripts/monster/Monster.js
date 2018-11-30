@@ -63,6 +63,7 @@ cc.Class({
         that.health -= 1;
         if (that.health <= 0) {
             that.game.onMonsterKilled(that.node);
+            that.game.addScore(1);
         }
     },
 
