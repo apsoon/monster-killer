@@ -1,3 +1,6 @@
+
+import { Enums } from "../util/Enums.js";
+
 cc.Class({
     extends: cc.Component,
 
@@ -11,6 +14,41 @@ cc.Class({
         that.game = game
         that.node.x = x;
         that.node.y = y;
+        that.onMove = true;
+        // console.info(" [ Monster.js ] ================ init >>>>> width ", game.width);
+        // console.info(" [ Monster.js ] ================ init >>>>> right ", game.height);
+        // 边界
+
+        that.borderR = (that.game.node.width - that.node.width) / 2;
+        that.borderL = -that.borderR;
+        that.borderU = (that.game.node.height - that.node.height) / 2;
+        that.borderD = -that.borderU;
+        // 动画
+        that.anim = that.getComponent(cc.Animation);
+        that.anim.playAdditive("bat_down");
+        that.schedule(function () {
+            let that = this,
+                rand = Math.floor(Math.random() * 4) + 1;
+            that.anim.stop();
+            switch (rand) {
+                case 1: // u
+                    that.moveDirection = Enums.Direction.UP;
+                    that.anim.playAdditive("bat_up");
+                    break;
+                case 2: // RIGHT
+                    that.moveDirection = Enums.Direction.RIGHT;
+                    that.anim.playAdditive("bat_right");
+                    break;
+                case 3: // DOWN
+                    that.moveDirection = Enums.Direction.DOWN;
+                    that.anim.playAdditive("bat_down");
+                    break;
+                case 4: // LEFT
+                    that.moveDirection = Enums.Direction.LEFT;
+                    that.anim.playAdditive("bat_left");
+                    break;
+            }
+        }, 3);
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -19,12 +57,8 @@ cc.Class({
         let that = this;
         var manager = cc.director.getCollisionManager();
         manager.enabled = true;
-        that.anim = that.getComponent(cc.Animation);
-        console.info(" [ Monster.js ] =================== onLoad >>>>> this = ", that);
-        console.info(" [ Monster.js ] =================== onLoad >>>>> this.anim = ", that.anim);
-        if(that.anim){
-            that.anim.playAdditive("bat_down");
-        }
+        that.onMove = false;
+        that.moveDirection = Enums.Direction.DOWN;
     },
 
     start() {
@@ -32,27 +66,28 @@ cc.Class({
     },
 
     update(dt) {
-        let that = this,
-            rand = Math.floor(Math.random() * 4) + 1;
-        switch (rand) {
-            case 1: // up
-                that.node.x += that.speed * dt;
-                // that.anim.playAdditive("bat_up");
-                break;
-            case 2: // RIGHT
-                that.node.y += that.speed * dt;
-                // that.anim.playAdditive("bat_right");
-                break;
-            case 3: // DOWN
-                that.node.y -= that.speed * dt;
-                break;
-            case 4: // LEFT
-                that.node.x -= that.speed * dt;
-                // that.anim.playAdditive("bat_left");
-                break;
+        let that = this;
+        if (that.onMove) {
+            switch (that.moveDirection) {
+                case Enums.Direction.RIGHT:
+                    that.node.x += that.speed * dt;
+                    if (that.node.x > that.borderR) that.node.x = that.borderR;
+                    break;
+                case Enums.Direction.UP:
+                    that.node.y += that.speed * dt;
+                    if (that.node.y > that.borderU) that.node.y = that.borderU;
+                    break;
+                case Enums.Direction.DOWN:
+                    that.node.y -= that.speed * dt;
+                    if (that.node.y < that.borderD) that.node.y = that.borderD;
+                    break;
+                case Enums.Direction.LEFT:
+                    that.node.x -= that.speed * dt;
+                    if (that.node.x < that.borderL) that.node.x = that.borderL;
+                    break;
+                default: break;
+            }
         }
-        // console.info(" [ Monster.js ] ================ update >>>>> that =  ", that.game);
-
     },
 
     onCollisionEnter: function (other, self) {
