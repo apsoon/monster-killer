@@ -23,7 +23,6 @@ cc.Class({
         that.onMove = false;
         that.moveDirection = Enums.Direction.DOWN;
         that.anim = that.getComponent(cc.Animation);
-        console.info(that);
         var manager = cc.director.getCollisionManager();
         manager.enabled = true;
     },
@@ -88,7 +87,6 @@ cc.Class({
 
     update(dt) {
         let that = this;
-        console.info(that.onMove, "\t", that.moveDirection);
         if (that.onMove) {
             switch (that.moveDirection) {
                 case Enums.Direction.UP:

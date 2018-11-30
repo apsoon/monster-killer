@@ -1,12 +1,12 @@
 {
   "__type__": "cc.AnimationClip",
-  "_name": "ribaiasu_right",
+  "_name": "bat_down",
   "_objFlags": 0,
   "_native": "",
   "_duration": 0.5166666666666667,
   "sample": 60,
   "speed": 1,
-  "wrapMode": "2",
+  "wrapMode": 1,
   "curveData": {
     "comps": {
       "cc.Sprite": {
@@ -14,36 +14,30 @@
           {
             "frame": 0,
             "value": {
-              "__uuid__": "4d8e5c56-97bc-4df4-9365-1e1b4d679c1b"
+              "__uuid__": "00e78948-b4b2-4b80-8849-4883db8bb583"
             }
           },
           {
-            "frame": 0.15,
+            "frame": 0.16666666666666666,
             "value": {
-              "__uuid__": "772364fd-ae09-4ab9-b4c7-b4ade1c632a0"
+              "__uuid__": "c8469b65-42fb-4de7-ac22-cd85849a9e0f"
             }
           },
           {
             "frame": 0.3333333333333333,
             "value": {
-              "__uuid__": "a7677fac-6f77-4b90-8f4f-d932daf86cc1"
+              "__uuid__": "96acdf95-f3df-452e-a1ea-06badd44c011"
             }
           },
           {
             "frame": 0.5,
             "value": {
-              "__uuid__": "d8070dc3-6953-4d80-a9e2-a1bfc26a0702"
+              "__uuid__": "a41ff151-77c4-465e-b5cf-b1f2fce1ada1"
             }
           }
         ]
       }
     }
   },
-  "events": [
-    {
-      "frame": 0,
-      "func": "",
-      "params": []
-    }
-  ]
+  "events": []
 }

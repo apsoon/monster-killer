@@ -1,12 +1,12 @@
 {
   "__type__": "cc.AnimationClip",
-  "_name": "ribaiasu_right",
+  "_name": "bat_right",
   "_objFlags": 0,
   "_native": "",
   "_duration": 0.5166666666666667,
   "sample": 60,
   "speed": 1,
-  "wrapMode": "2",
+  "wrapMode": 1,
   "curveData": {
     "comps": {
       "cc.Sprite": {
@@ -14,36 +14,30 @@
           {
             "frame": 0,
             "value": {
-              "__uuid__": "4d8e5c56-97bc-4df4-9365-1e1b4d679c1b"
+              "__uuid__": "6259676c-4cd0-42c8-9e1f-8082d5ab8194"
             }
           },
           {
-            "frame": 0.15,
+            "frame": 0.16666666666666666,
             "value": {
-              "__uuid__": "772364fd-ae09-4ab9-b4c7-b4ade1c632a0"
+              "__uuid__": "60933335-79a2-4e00-88ff-7178f7af3a47"
             }
           },
           {
             "frame": 0.3333333333333333,
             "value": {
-              "__uuid__": "a7677fac-6f77-4b90-8f4f-d932daf86cc1"
+              "__uuid__": "d75d98bb-de93-4f62-93a0-4c679edda780"
             }
           },
           {
             "frame": 0.5,
             "value": {
-              "__uuid__": "d8070dc3-6953-4d80-a9e2-a1bfc26a0702"
+              "__uuid__": "0a103347-e38c-443e-bea3-9abf8749750b"
             }
           }
         ]
       }
     }
   },
-  "events": [
-    {
-      "frame": 0,
-      "func": "",
-      "params": []
-    }
-  ]
+  "events": []
 }
