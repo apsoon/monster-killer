@@ -8,6 +8,10 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
+        startBtn: {
+            default: null,
+            type: cc.Node
+        },
         // 分数展示
         scoreDisplay: {
             default: null,
@@ -137,28 +141,28 @@ cc.Class({
     initMoveButton: function () {
         let that = this;
         that.buttonUp.node.on(cc.Node.EventType.TOUCH_START, (event) => {
-            that.player.moveAction(Enums.Direction.UP, Enums.RunningAction.START);
+            that.player.moveAction(Enums.Direction.UP, Enums.StatusOrder.START);
         });
         that.buttonUp.node.on(cc.Node.EventType.TOUCH_END, (event) => {
-            that.player.moveAction(Enums.Direction.UP, Enums.RunningAction.STOP);
+            that.player.moveAction(Enums.Direction.UP, Enums.StatusOrder.STOP);
         });
         that.buttonDown.node.on(cc.Node.EventType.TOUCH_START, (event) => {
-            that.player.moveAction(Enums.Direction.DOWN, Enums.RunningAction.START);
+            that.player.moveAction(Enums.Direction.DOWN, Enums.StatusOrder.START);
         });
         that.buttonDown.node.on(cc.Node.EventType.TOUCH_END, (event) => {
-            that.player.moveAction(Enums.Direction.DOWN, Enums.RunningAction.STOP);
+            that.player.moveAction(Enums.Direction.DOWN, Enums.StatusOrder.STOP);
         });
         that.buttonLeft.node.on(cc.Node.EventType.TOUCH_START, (event) => {
-            that.player.moveAction(Enums.Direction.LEFT, Enums.RunningAction.START);
+            that.player.moveAction(Enums.Direction.LEFT, Enums.StatusOrder.START);
         });
         that.buttonLeft.node.on(cc.Node.EventType.TOUCH_END, (event) => {
-            that.player.moveAction(Enums.Direction.LEFT, Enums.RunningAction.STOP);
+            that.player.moveAction(Enums.Direction.LEFT, Enums.StatusOrder.STOP);
         });
         that.buttonRight.node.on(cc.Node.EventType.TOUCH_START, (event) => {
-            that.player.moveAction(Enums.Direction.RIGHT, Enums.RunningAction.START);
+            that.player.moveAction(Enums.Direction.RIGHT, Enums.StatusOrder.START);
         });
         that.buttonRight.node.on(cc.Node.EventType.TOUCH_END, (event) => {
-            that.player.moveAction(Enums.Direction.RIGHT, Enums.RunningAction.STOP);
+            that.player.moveAction(Enums.Direction.RIGHT, Enums.StatusOrder.STOP);
         });
     },
 

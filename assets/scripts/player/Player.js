@@ -20,6 +20,8 @@ cc.Class({
         that.minPosX = - that.node.parent.height / 2;
         that.maxPosX = that.node.parent.height / 2;
         // 动画
+        that.onMove = false;
+        that.moveDirection = Enums.Direction.DOWN;
         that.anim = that.getComponent(cc.Animation);
         console.info(that);
         var manager = cc.director.getCollisionManager();
@@ -36,10 +38,12 @@ cc.Class({
      * @param {*} direction 
      * @param {*} status 
      */
-    moveAction: function (direction, status) {
+    moveAction: function (direction, order) {
+        console.info(" [ Player.js ] ================= moveAction >>>>>> order = ", order);
         let that = this;
+        that.moveDirection = direction;
         // 移动状态
-        if (status == Enums.RunningAction.START) {
+        if (order == Enums.StatusOrder.START) {
             that.onMove = true;
             switch (that.moveDirection) {
                 case Enums.Direction.UP:
@@ -76,8 +80,6 @@ cc.Class({
             //     default: break;
             // }
         }
-        // 移动方向
-        that.moveDirection = direction;
     },
 
     start() {
@@ -86,6 +88,7 @@ cc.Class({
 
     update(dt) {
         let that = this;
+        console.info(that.onMove, "\t", that.moveDirection);
         if (that.onMove) {
             switch (that.moveDirection) {
                 case Enums.Direction.UP:

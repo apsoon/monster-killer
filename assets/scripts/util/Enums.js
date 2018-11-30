@@ -1,62 +1,32 @@
-// Learn cc.Class:
-//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/class.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/class.html
-// Learn Attribute:
-//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/reference/attributes.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - [Chinese] http://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
-//  - [English] http://www.cocos2d-x.org/docs/creator/en/scripting/life-cycle-callbacks.html
-
-
+// 方向
 const Direction = cc.Enum({
-    UP: 1,
-    DOWN: 3,
-    LEFT: 4,
-    RIGHT: 2
+    UP: 0,
+    RIGHT: 1,
+    DOWN: 2,
+    LEFT: 3,
 });
 
-const Group = cc.Enum({
-    PLAYER: 1,
-    MONSTER: 2,
-    MISSILE: 3
+// 碰撞对象分组
+const CollisionGroup = cc.Enum({
+    PLAYER: 0,
+    MONSTER: 1,
+    MISSILE: 2
 });
 
-const RunningAction = cc.Enum({
+// 状态命令
+const StatusOrder = cc.Enum({
     STOP: 0,
-    START: 1
+    START: 1,
+    PAUSE: 2,
+    RESUME: 3,
 });
 
-cc.Class({
-    extends: cc.Component,
-
-    properties: {
-        // foo: {
-        //     // ATTRIBUTES:
-        //     default: null,        // The default value will be used only when the component attaching
-        //                           // to a node for the first time
-        //     type: cc.SpriteFrame, // optional, default is typeof default
-        //     serializable: true,   // optional, default is true
-        // },
-        // bar: {
-        //     get () {
-        //         return this._bar;
-        //     },
-        //     set (value) {
-        //         this._bar = value;
-        //     }
-        // },
-    },
-
-    // LIFE-CYCLE CALLBACKS:
-
-    // onLoad () {},
-
-    start() {
-
-    },
-
-    // update (dt) {},
+// 游戏状态
+const GameStatus = cc.Enum({
+    NEW: 0,
+    RUNNING: 1,
+    PAUSE: 2,
+    OVER: 3,
 });
 
-export const Enums = { Direction, RunningAction }
+export const Enums = { Direction, CollisionGroup, StatusOrder, GameStatus }
