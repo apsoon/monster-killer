@@ -19,9 +19,12 @@ cc.Class({
         let that = this;
         var manager = cc.director.getCollisionManager();
         manager.enabled = true;
-        // that.anim = that.getComponent(cc.Animation);
+        that.anim = that.getComponent(cc.Animation);
         console.info(" [ Monster.js ] =================== onLoad >>>>> this = ", that);
-        // that.anim.playAdditive("bat_down");
+        console.info(" [ Monster.js ] =================== onLoad >>>>> this.anim = ", that.anim);
+        if(that.anim){
+            that.anim.playAdditive("bat_down");
+        }
     },
 
     start() {
