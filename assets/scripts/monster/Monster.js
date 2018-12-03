@@ -1,6 +1,7 @@
 
 import { Enums } from "../util/Enums.js";
 const START_SUFFIX = "_start";
+const OVER_SUFFIX = "_over";
 const UP_SUFFIX = "_up";
 const RIGHT_SUFFIX = "_right";
 const DOWN_SUFFIX = "_down";
@@ -102,7 +103,10 @@ cc.Class({
         if (other.node.group == "missile") {
             that.health -= 1;
             if (that.health <= 0) {
-                that.game.onMonsterKilled(that.node);
+                that.anim.play(that.node.name + OVER_SUFFIX);
+                that.scheduleOnce(function () {
+                    that.game.onMonsterKilled(that.node);
+                }, 1);
                 that.game.addScore(1);
             }
         }
