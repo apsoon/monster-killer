@@ -1,0 +1,49 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "zombie_up",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.6833333333333333,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": "2",
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "0b4d24fb-b3b5-49ab-9012-b9084f35751e"
+            }
+          },
+          {
+            "frame": 0.16666666666666666,
+            "value": {
+              "__uuid__": "4da9d22a-40d0-4f39-ae86-10440a755c9a"
+            }
+          },
+          {
+            "frame": 0.3333333333333333,
+            "value": {
+              "__uuid__": "c3a47ddc-058e-4531-b07e-f08f9fb5ecff"
+            }
+          },
+          {
+            "frame": 0.5,
+            "value": {
+              "__uuid__": "c05a9b47-aa8a-4ceb-b9a0-94cbc261354d"
+            }
+          },
+          {
+            "frame": 0.6666666666666666,
+            "value": {
+              "__uuid__": "935e1b7a-e852-4a57-bfa1-571f2a601e05"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

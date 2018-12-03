@@ -231,7 +231,7 @@ cc.Class({
     initMonsterPool: function () {
         let that = this;
         that.monsterPool = new cc.NodePool();
-        let prefabUrl = "/prefab/monster/skull";
+        let prefabUrl = "/prefab/monster/zombie";
         cc.loader.loadRes(prefabUrl, (rej, res) => {
             if (rej) {
                 cc.log(" load prefab failed : ", rej);
