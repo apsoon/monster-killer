@@ -32,11 +32,11 @@ cc.Class({
             default: null,
             type: cc.Prefab
         },
-        // 怪物
-        monsterPrefab: {
-            default: null,
-            type: cc.Prefab,
-        },
+        // // 怪物
+        // monsterPrefab: {
+        //     default: null,
+        //     type: cc.Prefab,
+        // },
         // 射击按钮
         buttonA: {
             default: null,
@@ -231,10 +231,22 @@ cc.Class({
     initMonsterPool: function () {
         let that = this;
         that.monsterPool = new cc.NodePool();
-        for (let i = 0; i < INIT_MONSTER_POOL_COUNT; i++) {
-            let monster = cc.instantiate(that.monsterPrefab);
-            that.monsterPool.put(monster);
-        }
+        let prefabUrl = "/prefab/monster/monster";
+        cc.loader.loadRes(prefabUrl, (rej, res) => {
+            if (rej) {
+                cc.log(" load prefab failed : ", rej);
+                return;
+            }
+            if (!(res instanceof cc.Prefab)) {
+                cc.log(prefabUrl, " is not a prefab");
+                return;
+            }
+            that.monsterPrefab = res;
+            for (let i = 0; i < INIT_MONSTER_POOL_COUNT; i++) {
+                let monster = cc.instantiate(res);
+                that.monsterPool.put(monster);
+            }
+        });
     },
 
     /**
@@ -247,6 +259,10 @@ cc.Class({
             monster = that.monsterPool.get();
         } else {
             monster = cc.instantiate(that.monsterPrefab);
+        }
+        if (!monster) {
+            cc.log(" create monster failed !");
+            return;
         }
         monster.parent = parentNode;
         monster.getComponent("Monster").init(that, x, y);
