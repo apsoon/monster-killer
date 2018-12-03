@@ -31,7 +31,8 @@ cc.Class({
         that.anim = that.getComponent(cc.Animation);
         that.anim.play(that.node.name + START_SUFFIX);
         that.scheduleOnce(() => { // 出场动画出现后设置为移动状态
-            that.onMove = true;
+            that.onMove = true; // 设置为移动状态
+            that.canHit = true; // 设置为可攻击状态
         }, 1);
         that.anim.playAdditive(that.node.name + DOWN_SUFFIX);
         that.schedule(function () {
@@ -102,10 +103,11 @@ cc.Class({
         let that = this;
         console.info(" [ Monster.js ] ==================== onCollisionEnter >>>>> health = ", that.health);
         // 被子弹打中扣一滴血 如果血为0 怪物消失 得一分
-        if (other.node.group == "missile") {
+        if (other.node.group == "missile" && that.canHit == true) {
             that.health -= 1;
             if (that.health <= 0) {
                 that.onMove = false; // 停止移动
+                that.canHit = false; // 设置为不可攻击
                 that.anim.play(that.node.name + OVER_SUFFIX); // 播放死亡动画
                 that.scheduleOnce(function () { // 动画播放结束后回收对象
                     that.game.onMonsterKilled(that.node);
