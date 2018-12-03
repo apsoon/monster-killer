@@ -38,7 +38,7 @@ cc.Class({
     },
 
     /**
-     * 
+     * 移动
      * @param {*} direction 
      * @param {*} status 
      */
@@ -67,22 +67,6 @@ cc.Class({
         } else {
             that.onMove = false;
             that.anim.stop();
-            // switch (that.moveDirection) {
-            //     case Enums.Direction.UP:
-            //         // that.anim.stop("ribaiasu_up");
-            //         that.anim.stop()
-            //         break;
-            //     case Enums.Direction.DOWN:
-            //         that.anim.stop("ribaiasu_down");
-            //         break;
-            //     case Enums.Direction.LEFT:
-            //         that.anim.stop("ribaiasu_left");
-            //         break;
-            //     case Enums.Direction.RIGHT:
-            //         that.anim.stop("ribaiasu_right");
-            //         break;
-            //     default: break;
-            // }
         }
     },
 
