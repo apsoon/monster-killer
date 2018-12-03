@@ -141,6 +141,7 @@
     "_enabled": true,
     "speed": 80,
     "health": 1,
+    "score": 1,
     "_id": ""
   },
   {

@@ -2247,6 +2247,7 @@
     "_enabled": true,
     "speed": 0,
     "health": 0,
+    "score": 0,
     "_id": "50kdC4qp9PzImX0Wh9XMCy"
   }
 ]

@@ -12,6 +12,7 @@ cc.Class({
     properties: {
         speed: 0,
         health: 0,
+        score: 0,
     },
 
     init: function (game, x, y) {
@@ -19,19 +20,20 @@ cc.Class({
         that.game = game
         that.node.x = x;
         that.node.y = y;
-        that.onMove = true;
-        // console.info(" [ Monster.js ] ================ init >>>>> width ", game.width);
-        // console.info(" [ Monster.js ] ================ init >>>>> right ", game.height);
-        // 边界
 
+        // 设置边界
         that.borderR = (that.game.node.width - that.node.width) / 2;
         that.borderL = -that.borderR;
         that.borderU = (that.game.node.height - that.node.height) / 2;
         that.borderD = -that.borderU;
+
         // 动画
         that.anim = that.getComponent(cc.Animation);
-        // that.anim.playAdditive(that.node.name + DOWN_SUFFIX);
         that.anim.play(that.node.name + START_SUFFIX);
+        that.scheduleOnce(() => { // 出场动画出现后设置为移动状态
+            that.onMove = true;
+        }, 1);
+        that.anim.playAdditive(that.node.name + DOWN_SUFFIX);
         that.schedule(function () {
             let that = this,
                 rand = Math.floor(Math.random() * 4) + 1;
@@ -103,11 +105,12 @@ cc.Class({
         if (other.node.group == "missile") {
             that.health -= 1;
             if (that.health <= 0) {
-                that.anim.play(that.node.name + OVER_SUFFIX);
-                that.scheduleOnce(function () {
+                that.onMove = false; // 停止移动
+                that.anim.play(that.node.name + OVER_SUFFIX); // 播放死亡动画
+                that.scheduleOnce(function () { // 动画播放结束后回收对象
                     that.game.onMonsterKilled(that.node);
                 }, 1);
-                that.game.addScore(1);
+                that.game.addScore(that.score); // 添加分数
             }
         }
     },

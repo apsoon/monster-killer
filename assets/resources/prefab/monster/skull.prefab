@@ -123,6 +123,7 @@
     "_enabled": true,
     "speed": 100,
     "health": 5,
+    "score": 1,
     "_id": ""
   },
   {

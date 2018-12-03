@@ -3,7 +3,7 @@
   "_name": "skull_start",
   "_objFlags": 0,
   "_native": "",
-  "_duration": 1.0166666666666666,
+  "_duration": 0.9833333333333333,
   "sample": 60,
   "speed": 1,
   "wrapMode": "0",
@@ -54,13 +54,13 @@
             }
           },
           {
-            "frame": 0.9166666666666666,
+            "frame": 0.8833333333333333,
             "value": {
               "__uuid__": "d718a5d0-0bc6-4d61-b078-eed114fb0c6e"
             }
           },
           {
-            "frame": 1,
+            "frame": 0.9666666666666667,
             "value": {
               "__uuid__": "a45f65d3-cf83-42d8-a87a-13bf0960dc59"
             }
