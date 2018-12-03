@@ -132,6 +132,10 @@ cc.Class({
         let that = this;
         that.healthDisplay.string = 'Health: ' + that.player.health;
         that.scoreDisplay.string = 'Score: ' + dataBus.score.toString();
+
+        if (dataBus.gameStatus == Enums.GameStatus.OVER) {
+            that.buttonUp.interactable = false;
+        }
     },
 
     /**
@@ -140,6 +144,7 @@ cc.Class({
     initMoveButton: function () {
         let that = this;
         that.buttonUp.node.on(cc.Node.EventType.TOUCH_START, (event) => {
+            console.info(" initMoveButton ", event);
             that.player.moveAction(Enums.Direction.UP, Enums.StatusOrder.START);
         });
         that.buttonUp.node.on(cc.Node.EventType.TOUCH_END, (event) => {

@@ -18,6 +18,7 @@ cc.Class({
 
     onLoad() {
         let that = this;
+        that.canBeHit = true;
         // 设置当前运动边界
         that.borderUp = dataBus.borderUp - that.node.height / 2;
         that.borderRight = dataBus.borderRight - that.node.width / 2;
@@ -116,11 +117,19 @@ cc.Class({
 
     onCollisionEnter: function (other, self) {
         let that = this;
-        if (other.node.group == "monster") {
+        if (other.node.group == "monster" && that.canBeHit) {
             that.health -= 1;
-            // if (that.health <= 0) {
-
-            // }
+            if (that.health <= 0) {
+                that.health = 0;
+                dataBus.gameStatus = Enums.GameStatus.OVER;
+                return;
+            }
+            that.canBeHit = false;
+            let _blink = cc.blink(3, 10);
+            let _afterBlink = cc.callFunc(() => {
+                that.canBeHit = true;
+            });
+            that.node.runAction(cc.sequence(_blink, _afterBlink));
         }
     },
 });
