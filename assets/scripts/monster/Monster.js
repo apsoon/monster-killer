@@ -1,5 +1,6 @@
 
 import { Enums } from "../util/Enums.js";
+const START_SUFFIX = "_start";
 const UP_SUFFIX = "_up";
 const RIGHT_SUFFIX = "_right";
 const DOWN_SUFFIX = "_down";
@@ -28,7 +29,8 @@ cc.Class({
         that.borderD = -that.borderU;
         // 动画
         that.anim = that.getComponent(cc.Animation);
-        that.anim.playAdditive(that.node.name + DOWN_SUFFIX);
+        // that.anim.playAdditive(that.node.name + DOWN_SUFFIX);
+        that.anim.play(that.node.name + START_SUFFIX);
         that.schedule(function () {
             let that = this,
                 rand = Math.floor(Math.random() * 4) + 1;
