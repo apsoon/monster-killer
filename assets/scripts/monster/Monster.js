@@ -1,11 +1,15 @@
-
 import { Enums } from "../util/Enums.js";
+import DataBus from "../DataBus.js";
+
 const START_SUFFIX = "_start";
 const OVER_SUFFIX = "_over";
 const UP_SUFFIX = "_up";
 const RIGHT_SUFFIX = "_right";
 const DOWN_SUFFIX = "_down";
 const LEFT_SUFFIX = "_left";
+
+const dataBus = DataBus.instance;
+
 cc.Class({
     extends: cc.Component,
 
@@ -112,7 +116,7 @@ cc.Class({
                 that.scheduleOnce(function () { // 动画播放结束后回收对象
                     that.game.onMonsterKilled(that.node);
                 }, 1);
-                that.game.addScore(that.score); // 添加分数
+                dataBus.addScore(that.score); // 添加分数
             }
         }
     },

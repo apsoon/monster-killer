@@ -30,18 +30,23 @@ var DataBus = cc.Class({
         // 对象池
         that.createMissilePool(); // 初始化怪物对象池
         that.createMonsterPool(); // 初始化子弹对象池 
-        // 游戏边界
-        that.borderUp;
-        that.borderRight;
-        that.borderDown;
-        that.borderLeft;
         // 重置游戏状态数据
         that.reset();
     },
 
-    // init(windowWidth, windowHeight) {
-
-    // },
+    /**
+     * 初始化
+     * @param {*} game 
+     */
+    init(game) {
+        let that = this;
+        that.game = game;
+        // 游戏边界
+        that.borderUp = game.node.height / 2;
+        that.borderRight = game.node.width / 2;
+        that.borderDown = -game.node.height / 2;
+        that.borderLeft = -game.node.width / 2;
+    },
 
     /**
      * 重制全局数据
@@ -51,6 +56,15 @@ var DataBus = cc.Class({
         that.gameStatus = Enums.GameStatus.NEW;
         that.score = 0;
         // that.playerHealth = 0;
+    },
+
+    /**
+     * 添加分数
+     * @param {*} score 
+     */
+    addScore: function (score) {
+        let that = this;
+        that.score += score;
     },
 
     // --------------------------------------------------------------------------- 子弹 ---------------------------------------------------------------------------

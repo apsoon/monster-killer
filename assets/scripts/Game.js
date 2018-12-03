@@ -1,8 +1,10 @@
 import { Enums } from "./util/Enums.js";
 import Player from "./player/Player.js";
+import DataBus from "./DataBus.js";
 
 let INIT_MISSILE_POOL_COUNT = 10;
 let INIT_MONSTER_POOL_COUNT = 10;
+let dataBus = DataBus.instance;
 
 cc.Class({
     extends: cc.Component,
@@ -87,8 +89,7 @@ cc.Class({
         that.initShotButton();
         that.initMissilePool();
         that.initMonsterPool();
-        that.score = 0;
-        that.scoreDisplay.string = 'Score: ' + this.score.toString();
+        that.scoreDisplay.string = 'Score: 0';
         that.healthDisplay.string = 'Health: ' + that.player.health;
         // 生成怪物
         that.schedule(function () {
@@ -120,12 +121,6 @@ cc.Class({
         }, 3);
     },
 
-    addScore: function (score) {
-        let that = this;
-        that.score += score;
-        that.scoreDisplay.string = 'Score: ' + this.score.toString();
-    },
-
     start() {
 
     },
@@ -133,6 +128,7 @@ cc.Class({
     update(dt) {
         let that = this;
         that.healthDisplay.string = 'Health: ' + that.player.health;
+        that.scoreDisplay.string = 'Score: ' + dataBus.score.toString();
     },
 
     /**
