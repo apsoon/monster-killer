@@ -1,4 +1,7 @@
 import { Enums } from "../util/Enums.js";
+import DataBus from "../DataBus.js";
+
+const dataBus = DataBus.instance;
 
 cc.Class({
     extends: cc.Component,
@@ -15,10 +18,11 @@ cc.Class({
 
     onLoad() {
         let that = this;
-        that.minPosY = - that.node.parent.width / 2;
-        that.maxPosY = that.node.parent.width / 2;
-        that.minPosX = - that.node.parent.height / 2;
-        that.maxPosX = that.node.parent.height / 2;
+        // 设置当前运动边界
+        that.borderUp = dataBus.borderUp - that.node.height / 2;
+        that.borderRight = dataBus.borderRight - that.node.width / 2;
+        that.borderDown = dataBus.borderDown + that.node.height / 2;
+        that.borderLeft = dataBus.borderLeft + that.node.width / 2;
         // 动画
         that.onMove = false;
         that.moveDirection = Enums.Direction.DOWN;
@@ -91,19 +95,19 @@ cc.Class({
             switch (that.moveDirection) {
                 case Enums.Direction.UP:
                     that.node.y += that.speed * dt;
-                    // if (that.node.y > that.maxPosY) that.node.y = that.maxPosY;
+                    if (that.node.y > that.borderUp) that.node.y = that.borderUp;
                     break;
                 case Enums.Direction.DOWN:
                     that.node.y -= that.speed * dt;
-                    // if (that.node.y < that.minPosY) that.node.y = that.minPosY;
+                    if (that.node.y < that.borderDown) that.node.y = that.borderDown;
                     break;
                 case Enums.Direction.LEFT:
                     that.node.x -= that.speed * dt;
-                    // if (that.node.x < that.minPosX) that.node.x = that.minPosX;
+                    if (that.node.x < that.borderLeft) that.node.x = that.borderLeft;
                     break;
                 case Enums.Direction.RIGHT:
                     that.node.x += that.speed * dt;
-                    // if (that.node.x > that.maxPosX) that.node.x = that.maxPosX;
+                    if (that.node.x > that.borderRight) that.node.x = that.borderRight;
                     break;
                 default: break;
             }

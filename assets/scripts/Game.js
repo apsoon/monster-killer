@@ -89,6 +89,9 @@ cc.Class({
         that.initShotButton();
         that.initMissilePool();
         that.initMonsterPool();
+        // 初始化databus
+        dataBus.init(that);
+        //
         that.scoreDisplay.string = 'Score: 0';
         that.healthDisplay.string = 'Health: ' + that.player.health;
         // 生成怪物
