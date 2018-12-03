@@ -3,10 +3,10 @@
   "_name": "skull_left",
   "_objFlags": 0,
   "_native": "",
-  "_duration": 0.35,
+  "_duration": 0.6833333333333333,
   "sample": 60,
   "speed": 1,
-  "wrapMode": 1,
+  "wrapMode": "2",
   "curveData": {
     "comps": {
       "cc.Sprite": {
@@ -18,25 +18,25 @@
             }
           },
           {
-            "frame": 0.08333333333333333,
+            "frame": 0.16666666666666666,
             "value": {
               "__uuid__": "8f47fdc7-fb5c-4669-890d-1b49a842bad9"
             }
           },
           {
-            "frame": 0.16666666666666666,
+            "frame": 0.3333333333333333,
             "value": {
               "__uuid__": "cb9d75c0-6d1c-43fc-b74f-9f89d0568e40"
             }
           },
           {
-            "frame": 0.25,
+            "frame": 0.5,
             "value": {
               "__uuid__": "93ba5ed2-f598-45c2-b084-aa415b26c13e"
             }
           },
           {
-            "frame": 0.3333333333333333,
+            "frame": 0.6666666666666666,
             "value": {
               "__uuid__": "cf2216b0-cad8-464c-8506-55fb43d13bfc"
             }

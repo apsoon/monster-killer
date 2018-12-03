@@ -1,6 +1,9 @@
 
 import { Enums } from "../util/Enums.js";
-
+const UP_SUFFIX = "_up";
+const RIGHT_SUFFIX = "_right";
+const DOWN_SUFFIX = "_down";
+const LEFT_SUFFIX = "_left";
 cc.Class({
     extends: cc.Component,
 
@@ -25,7 +28,7 @@ cc.Class({
         that.borderD = -that.borderU;
         // 动画
         that.anim = that.getComponent(cc.Animation);
-        that.anim.playAdditive("bat_down");
+        that.anim.playAdditive(that.node.name + DOWN_SUFFIX);
         that.schedule(function () {
             let that = this,
                 rand = Math.floor(Math.random() * 4) + 1;
@@ -33,19 +36,19 @@ cc.Class({
             switch (rand) {
                 case 1: // u
                     that.moveDirection = Enums.Direction.UP;
-                    that.anim.playAdditive("bat_up");
+                    that.anim.playAdditive(that.node.name + UP_SUFFIX);
                     break;
                 case 2: // RIGHT
                     that.moveDirection = Enums.Direction.RIGHT;
-                    that.anim.playAdditive("bat_right");
+                    that.anim.playAdditive(that.node.name + RIGHT_SUFFIX);
                     break;
                 case 3: // DOWN
                     that.moveDirection = Enums.Direction.DOWN;
-                    that.anim.playAdditive("bat_down");
+                    that.anim.playAdditive(that.node.name + DOWN_SUFFIX);
                     break;
                 case 4: // LEFT
                     that.moveDirection = Enums.Direction.LEFT;
-                    that.anim.playAdditive("bat_left");
+                    that.anim.playAdditive(that.node.name + LEFT_SUFFIX);
                     break;
             }
         }, 3);
@@ -91,9 +94,10 @@ cc.Class({
     },
 
     onCollisionEnter: function (other, self) {
+        let that = this;
+        console.info(" [ Monster.js ] ==================== onCollisionEnter >>>>> health = ", that.health);
         // 被子弹打中扣一滴血 如果血为0 怪物消失 得一分
         if (other.node.group == "missile") {
-            let that = this;
             that.health -= 1;
             if (that.health <= 0) {
                 that.game.onMonsterKilled(that.node);

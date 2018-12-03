@@ -17,14 +17,26 @@
     "_parent": null,
     "_children": [],
     "_active": true,
-    "_level": 2,
+    "_level": 1,
     "_components": [
       {
         "__id__": 2
+      },
+      {
+        "__id__": 3
+      },
+      {
+        "__id__": 4
+      },
+      {
+        "__id__": 5
+      },
+      {
+        "__id__": 6
       }
     ],
     "_prefab": {
-      "__id__": 3
+      "__id__": 7
     },
     "_opacity": 255,
     "_color": {
@@ -68,7 +80,7 @@
     "_skewX": 0,
     "_skewY": 0,
     "_zIndex": 0,
-    "groupIndex": 0,
+    "groupIndex": 2,
     "_id": ""
   },
   {
@@ -102,12 +114,94 @@
     "_id": ""
   },
   {
+    "__type__": "d318aHjIiRLiIm2l5KvKeJR",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "speed": 100,
+    "health": 5,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.Animation",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "_defaultClip": null,
+    "_clips": [
+      {
+        "__uuid__": "3c87d51a-9aad-4bf1-b1df-9ffe2085200b"
+      },
+      {
+        "__uuid__": "ce74526d-8f3c-44a8-9789-2558c3a8fd4f"
+      },
+      {
+        "__uuid__": "5e0ae26d-640e-4c0f-a733-0354fa416520"
+      },
+      {
+        "__uuid__": "56e2f689-1d4a-47cb-9b05-6306ebdcb00f"
+      },
+      {
+        "__uuid__": "9962ac6a-bcf5-4bc9-94c6-2fb02edc9af8"
+      },
+      {
+        "__uuid__": "983c0be0-fc79-4f9c-b05e-dc50eb89d4f9"
+      }
+    ],
+    "playOnLoad": false,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.BoxCollider",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "tag": 0,
+    "_offset": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_size": {
+      "__type__": "cc.Size",
+      "width": 65,
+      "height": 63
+    },
+    "_id": ""
+  },
+  {
+    "__type__": "cc.CircleCollider",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "tag": 0,
+    "_offset": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_radius": 32,
+    "_id": ""
+  },
+  {
     "__type__": "cc.PrefabInfo",
     "root": {
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "9fb383dd-1757-46d1-888f-c4b860f63e00"
     },
     "fileId": "c8VIeI+jVCxrqP2OUlwg/7",
     "sync": false

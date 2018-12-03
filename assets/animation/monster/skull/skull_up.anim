@@ -1,0 +1,49 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "skull_up",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.6833333333333333,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": "2",
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "22f840a6-232c-45e9-881f-7b42a35deac5"
+            }
+          },
+          {
+            "frame": 0.16666666666666666,
+            "value": {
+              "__uuid__": "875de0db-f0e4-4615-af50-5561dc129058"
+            }
+          },
+          {
+            "frame": 0.3333333333333333,
+            "value": {
+              "__uuid__": "6eea9ca1-87ab-49b8-b6e8-afb0eb16fbda"
+            }
+          },
+          {
+            "frame": 0.5,
+            "value": {
+              "__uuid__": "d10dc3ef-82bb-4cf2-9e5a-67e4360b23c9"
+            }
+          },
+          {
+            "frame": 0.6666666666666666,
+            "value": {
+              "__uuid__": "35920453-5426-449f-85d4-c65d1ad3543b"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

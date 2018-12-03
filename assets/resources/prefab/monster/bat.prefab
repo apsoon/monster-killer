@@ -12,7 +12,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "bat_01",
+    "_name": "bat",
     "_objFlags": 0,
     "_parent": null,
     "_children": [],
@@ -111,18 +111,6 @@
     "_id": ""
   },
   {
-    "__type__": "d318aHjIiRLiIm2l5KvKeJR",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "speed": 80,
-    "health": 1,
-    "_id": ""
-  },
-  {
     "__type__": "cc.BoxCollider",
     "_name": "",
     "_objFlags": 0,
@@ -141,6 +129,18 @@
       "width": 50,
       "height": 50
     },
+    "_id": ""
+  },
+  {
+    "__type__": "d318aHjIiRLiIm2l5KvKeJR",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "speed": 80,
+    "health": 1,
     "_id": ""
   },
   {

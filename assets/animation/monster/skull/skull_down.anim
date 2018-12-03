@@ -1,0 +1,49 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "skull_down",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.6833333333333333,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": "2",
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "9c1bc299-2fd1-48eb-ad9d-ff08e7da6235"
+            }
+          },
+          {
+            "frame": 0.16666666666666666,
+            "value": {
+              "__uuid__": "62f37807-3f20-47c1-bbb9-0bacb02649dc"
+            }
+          },
+          {
+            "frame": 0.3333333333333333,
+            "value": {
+              "__uuid__": "e37fdf2c-ad46-4d09-938b-3a12868c14b3"
+            }
+          },
+          {
+            "frame": 0.5,
+            "value": {
+              "__uuid__": "a91e2136-7e42-40ac-9e6b-54e0880fb25e"
+            }
+          },
+          {
+            "frame": 0.6666666666666666,
+            "value": {
+              "__uuid__": "1bc90d98-04b7-46b9-a168-4198652d45cf"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "events": []
+}

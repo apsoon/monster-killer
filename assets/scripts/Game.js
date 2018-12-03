@@ -231,7 +231,7 @@ cc.Class({
     initMonsterPool: function () {
         let that = this;
         that.monsterPool = new cc.NodePool();
-        let prefabUrl = "/prefab/monster/monster";
+        let prefabUrl = "/prefab/monster/skull";
         cc.loader.loadRes(prefabUrl, (rej, res) => {
             if (rej) {
                 cc.log(" load prefab failed : ", rej);
@@ -264,6 +264,7 @@ cc.Class({
             cc.log(" create monster failed !");
             return;
         }
+        console.info(" [ Game.js ] =================== createMonster >>>>> monster = ", monster);
         monster.parent = parentNode;
         monster.getComponent("Monster").init(that, x, y);
     },
