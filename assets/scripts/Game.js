@@ -12,6 +12,14 @@ cc.Class({
     properties: {
         startBtn: {
             default: null,
+            type: cc.Button
+        },
+        retryBtn: {
+            default: null,
+            type: cc.Button
+        },
+        gameoverDisplay: {
+            default: null,
             type: cc.Node
         },
         // 分数展示
@@ -92,8 +100,45 @@ cc.Class({
         // 初始化databus
         dataBus.init(that);
         //
+        that.changeButtonAbility(false);
+        that.retryBtn.node.active = false;
+        that.gameoverDisplay.active = false;
+        // console.info(" [][][][]][] ", that.gameoverDisplay);
         that.scoreDisplay.string = 'Score: 0';
         that.healthDisplay.string = 'Health: ' + that.player.health;
+        // 开始游戏按钮监听
+        that.startBtn.node.on(cc.Node.EventType.TOUCH_START, (event) => {
+            that.startGame();
+        });
+        // 重新游戏按钮监听
+        that.retryBtn.node.on(cc.Node.EventType.TOUCH_START, (event) => {
+            that.startGame();
+        });
+    },
+
+    start() {
+
+    },
+
+    update(dt) {
+        let that = this;
+        that.healthDisplay.string = 'Health: ' + that.player.health;
+        that.scoreDisplay.string = 'Score: ' + dataBus.score.toString();
+
+        if (dataBus.gameStatus == Enums.GameStatus.OVER) {
+            that.gameOver();
+        }
+    },
+
+    /**
+     * 开始游戏
+     */
+    startGame: function () {
+        let that = this;
+        console.info(" start game");
+        dataBus.gameStatus = Enums.GameStatus.RUNNING;
+        that.startBtn.node.active = false;
+        that.changeButtonAbility(true);
         // 生成怪物
         that.schedule(function () {
             let rand = Math.floor(Math.random() * 4) + 1,
@@ -124,18 +169,28 @@ cc.Class({
         }, 3);
     },
 
-    start() {
-
+    gameOver: function () {
+        let that = this;
+        dataBus.gameStatus = Enums.GameStatus.OVER;
+        that.retryBtn.node.active = true;
+        that.gameoverDisplay.active = true;
+        that.changeButtonAbility(false);
     },
 
-    update(dt) {
+    /**
+     * 
+     * @param {*} ability 
+     */
+    changeButtonAbility: function (ability) {
         let that = this;
-        that.healthDisplay.string = 'Health: ' + that.player.health;
-        that.scoreDisplay.string = 'Score: ' + dataBus.score.toString();
-
-        if (dataBus.gameStatus == Enums.GameStatus.OVER) {
-            that.buttonUp.interactable = false;
-        }
+        that.buttonA.node.active = ability;
+        that.buttonB.node.active = ability;
+        that.buttonX.node.active = ability;
+        that.buttonY.node.active = ability;
+        that.buttonUp.node.active = ability;
+        that.buttonDown.node.active = ability;
+        that.buttonRight.node.active = ability;
+        that.buttonLeft.node.active = ability;
     },
 
     /**
